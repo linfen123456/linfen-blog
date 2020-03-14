@@ -1,9 +1,12 @@
 package com.xd.pre.blog.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -67,7 +70,7 @@ public class BlogMenu extends BaseDomain implements Serializable {
     /**
      * 菜单类型 （类型   0：目录   1：菜单   2：按钮）
      */
-    private String type;
+    private Integer type;
 
     /**
      * 逻辑删除标记(0--正常 1--删除)
@@ -84,5 +87,23 @@ public class BlogMenu extends BaseDomain implements Serializable {
      */
     private Integer tenantId;
 
+    /* 非数据库字段
+     * 父菜单名称
+     */
+    @TableField(exist = false)
+    private String parentName;
 
+    /**
+     * 非数据库字段
+     * 菜单等级
+     */
+    @TableField(exist = false)
+    private Integer level;
+
+    /**
+     * 非数据库字段
+     * 子菜单
+     */
+    @TableField(exist = false)
+    private List<BlogMenu> children;
 }

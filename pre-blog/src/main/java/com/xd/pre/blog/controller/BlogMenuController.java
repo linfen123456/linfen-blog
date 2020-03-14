@@ -1,9 +1,15 @@
 package com.xd.pre.blog.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.xd.pre.blog.domain.BlogMenu;
+import com.xd.pre.blog.service.IBlogMenuService;
+import com.xd.pre.common.utils.R;
+import com.xd.pre.log.annotation.SysOperaLog;
+import com.xd.pre.security.PreSecurityUser;
+import com.xd.pre.security.util.SecurityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -16,6 +22,56 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/blog/menu")
 public class BlogMenuController {
+    @Autowired
+    private IBlogMenuService blogMenuService;
+    /**
+     * 添加菜单
+     *
+     * @param blogMenu
+     * @return
+     */
+    @PreAuthorize("hasAuthority('blog:menu:add')")
+    @SysOperaLog(descrption = "添加菜单")
+    @PostMapping
+    public R save(@RequestBody BlogMenu blogMenu) {
+        return blogMenuService.saveMenu(blogMenu);
+    }
+
+    /**
+     * 获取所有菜单
+     *
+     * @return
+     */
+    @GetMapping("/tree")
+    public R getMenus() {
+        return R.ok(blogMenuService.selectMenuTree(0));
+    }
+
+    /**
+     * 修改菜单
+     *
+     * @param blogMenu
+     * @return
+     */
+    @PreAuthorize("hasAuthority('blog:menu:update')")
+    @SysOperaLog(descrption = "修改菜单")
+    @PutMapping
+    public R updateMenu(@RequestBody BlogMenu blogMenu) {
+        return R.ok(blogMenuService.updateMenuById(blogMenu));
+    }
+
+    /**
+     * 根据id删除菜单
+     *
+     * @param id
+     * @return
+     */
+    @PreAuthorize("hasAuthority('blog:menu:delete')")
+    @SysOperaLog(descrption = "删除菜单")
+    @DeleteMapping("/{id}")
+    public R deleteMenu(@PathVariable("id") Integer id) {
+        return blogMenuService.removeMenuById(id);
+    }
 
 }
 
