@@ -102,6 +102,8 @@ public class PreWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/define/deploy/**").anonymous()
                 .antMatchers("/file/**")
                 .permitAll()
+                 .antMatchers("/blog/**")
+                .permitAll()
                 // 访问/user 需要拥有admin权限
                 //  .antMatchers("/user").hasAuthority("ROLE_ADMIN")
                 // 除上面外的所有请求全部需要鉴权认证

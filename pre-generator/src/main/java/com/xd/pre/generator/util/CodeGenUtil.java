@@ -151,12 +151,12 @@ public class CodeGenUtil {
      * @return 数据源配置 DataSourceConfig
      */
     private DataSourceConfig getDataSourceConfig() {
-        String dbUrl = "jdbc:mysql://127.0.0.1:3306/pre";
+        String dbUrl = "jdbc:mysql://127.0.0.1:3306/linfen_blog";
         return new DataSourceConfig()
                 .setDbType(DbType.MYSQL)
                 .setUrl(dbUrl)
                 .setUsername("root")
-                .setPassword("root")
+                .setPassword("123456")
                 .setDriverName("com.mysql.jdbc.Driver");
     }
 

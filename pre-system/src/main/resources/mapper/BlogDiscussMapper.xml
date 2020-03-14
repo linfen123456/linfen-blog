@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xd.pre.blog.mapper.BlogDiscussMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogDiscuss">
+        <id column="id" property="id" />
+        <result column="article_id" property="articleId" />
+        <result column="parent_id" property="parentId" />
+        <result column="content" property="content" />
+        <result column="user_id" property="userId" />
+        <result column="type" property="type" />
+        <result column="nickname" property="nickname" />
+        <result column="email" property="email" />
+        <result column="website" property="website" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+    </resultMap>
+
+</mapper>

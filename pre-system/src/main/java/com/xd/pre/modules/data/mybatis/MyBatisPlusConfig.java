@@ -62,4 +62,5 @@ public class MyBatisPlusConfig {
     public DataScopeInterceptor dataScopeInterceptor(DataSource dataSource) {
         return new DataScopeInterceptor(dataSource);
     }
+
 }

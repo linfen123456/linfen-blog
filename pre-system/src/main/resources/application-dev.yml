@@ -92,4 +92,12 @@ spring:
     port: 6379
     timeout: 6000ms
 
+#  devtools
+  devtools:
+    restart:
+      enabled: true
+
+#debug
+debug: true
+
 uploadFileServerPathPrefix: /Users/lihaodong/Desktop/files

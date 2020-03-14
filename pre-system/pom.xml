@@ -35,6 +35,11 @@
             <version>${pre.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.xd</groupId>
+            <artifactId>pre-blog</artifactId>
+            <version>${pre.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -101,6 +106,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart   这个要手动加进去 -->
+                    <fork>true</fork>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

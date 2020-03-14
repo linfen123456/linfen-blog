@@ -1,9 +1,13 @@
 package com.xd.pre.modules.data.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.xd.pre.security.PreSecurityUser;
+import com.xd.pre.security.util.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * @Classname PrexMetaObjectHandler
@@ -19,14 +23,29 @@ public class PrexMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
+        PreSecurityUser user = SecurityUtil.getUser();
         log.info("start insert fill ....");
         //避免使用metaObject.setValue()
-        this.setFieldValByName("delFlag", "0", metaObject);
+        if (metaObject.hasGetter("delFlag") ) {
+            this.setFieldValByName("delFlag", "0", metaObject);
+        }
+        if (metaObject.hasGetter("createTime") ) {
+            this.setFieldValByName("createTime", new Date(), metaObject);
+            this.setFieldValByName("userId", user.getUserId(), metaObject);
+        }
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
-        this.setFieldValByName("operator", "Tom", metaObject);
+        PreSecurityUser user = SecurityUtil.getUser();
+
+        if (metaObject.hasGetter("operator") ) {
+            this.setFieldValByName("operator", user.getUsername(), metaObject);        }
+
+        if (metaObject.hasGetter("updateTime") ) {
+            this.setFieldValByName("updateTime", new Date(), metaObject);
+        }
+
     }
 }

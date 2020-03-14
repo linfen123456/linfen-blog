@@ -23,6 +23,7 @@
         <module>pre-log</module>
         <module>pre-generator</module>
         <module>pre-security</module>
+        <module>pre-blog</module>
     </modules>
 
     <properties>
@@ -38,6 +39,7 @@
         <elasticsearch.version>7.3.1</elasticsearch.version>
         <pre.version>1.4</pre.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
+        <spring-devtools.version>2.2.4.RELEASE</spring-devtools.version>
     </properties>
 
     <dependencies>
@@ -150,6 +152,13 @@
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-config</artifactId>
             <version>${spring-social.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-devtools.version}</version>
+            <optional>true</optional>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.social</groupId>
