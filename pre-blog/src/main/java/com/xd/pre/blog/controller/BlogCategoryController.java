@@ -53,6 +53,20 @@ public class BlogCategoryController {
     }
 
     /**
+     * 查询所有分类集合
+     *
+     * @param page
+     * @param blogCategory
+     * @return
+     */
+    @SysOperaLog(descrption = "查询所有分类集合")
+    @GetMapping("/all")
+//    @PreAuthorize("hasAuthority('blog:category:view')")
+    public R getAllList(Page page, BlogCategory blogCategory) {
+        return R.ok(blogCategoryService.list(Wrappers.query(blogCategory)));
+    }
+
+    /**
      * 更新分类
      *
      * @param blogCategory

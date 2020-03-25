@@ -3,6 +3,7 @@ package com.xd.pre.blog.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xd.pre.blog.domain.BlogCategory;
 import com.xd.pre.blog.domain.BlogTag;
 import com.xd.pre.blog.service.IBlogTagService;
 import com.xd.pre.common.utils.R;
@@ -50,6 +51,20 @@ public class BlogTagController {
 //    @PreAuthorize("hasAuthority('blog:tag:view')")
     public R getList(Page page, BlogTag blogTag) {
         return R.ok(blogTagService.page(page, Wrappers.query(blogTag).lambda().orderByDesc(BlogTag::getCreateTime)));
+    }
+
+    /**
+     * 查询所有分类集合
+     *
+     * @param page
+     * @param blogTag
+     * @return
+     */
+    @SysOperaLog(descrption = "查询所有标签集合")
+    @GetMapping("/all")
+//    @PreAuthorize("hasAuthority('blog:category:view')")
+    public R getAllList(Page page, BlogTag blogTag) {
+        return R.ok(blogTagService.list(Wrappers.query(blogTag)));
     }
 
     /**

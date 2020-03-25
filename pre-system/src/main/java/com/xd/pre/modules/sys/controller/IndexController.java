@@ -12,6 +12,7 @@ import com.xd.pre.modules.sys.domain.SysUser;
 import com.xd.pre.modules.sys.dto.UserDTO;
 import com.xd.pre.modules.sys.service.ISysUserService;
 import com.xd.pre.common.utils.R;
+import com.xd.pre.security.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -130,11 +131,15 @@ public class IndexController {
     @RequestMapping("/info")
     public R info() {
         Map<String, Object> map = new HashMap<>();
-        List<String> list = new ArrayList<>();
-        list.add("admin");
-        map.put("roles", list);
-        map.put("avatar", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1561394014552&di=17b6c1233048e5276f48309b306c7699&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201804%2F29%2F20180429210111_gtsnf.jpg");
-        map.put("name", "Super Admin");
+        Integer userId = SecurityUtil.getUser().getUserId();
+        String username = SecurityUtil.getUser().getUsername();
+        Set<String> roles = userService.findRoleIdByUserId(userId);
+        SysUser sysUser = userService.findByUserInfoName(username);
+        sysUser.setPassword("");
+        map.put("roles", roles.toArray());
+        map.put("avatar", sysUser.getAvatar());
+        map.put("name", sysUser.getUsername());
+        map.put("user", sysUser);
         return R.ok(map);
     }
 

@@ -1,12 +1,16 @@
-package com.xd.pre.blog.domain;
+package com.xd.pre.blog.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.xd.pre.blog.domain.BaseDomain;
+import com.xd.pre.blog.domain.BlogTag;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -19,7 +23,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class BlogArticle extends BaseDomain implements Serializable {
+public class BlogArticleDTO extends BaseDomain implements Serializable {
 
     private static final long serialVersionUID=1L;
 
@@ -89,8 +93,42 @@ public class BlogArticle extends BaseDomain implements Serializable {
      */
     private String isView;
 
-
     private Integer tenantId;
 
+    /**
+     * 标签
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private List<BlogTag> tags;
+
+    /**
+     * 分类名称
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private String categoryName;
+
+    /**
+     * 用户名
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private String username;
+
+    /**
+     * 用户名
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private String nickname;
+
+    /**
+     * 头像
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private String avatar;
 
 }
+

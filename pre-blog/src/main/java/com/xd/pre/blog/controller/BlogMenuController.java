@@ -3,6 +3,7 @@ package com.xd.pre.blog.controller;
 
 import com.xd.pre.blog.domain.BlogMenu;
 import com.xd.pre.blog.service.IBlogMenuService;
+import com.xd.pre.blog.util.PreUtil;
 import com.xd.pre.common.utils.R;
 import com.xd.pre.log.annotation.SysOperaLog;
 import com.xd.pre.security.PreSecurityUser;
@@ -42,9 +43,19 @@ public class BlogMenuController {
      *
      * @return
      */
+    @GetMapping
+    public R getList() {
+        return R.ok(blogMenuService.selectMenuTree(0));
+    }
+
+    /**
+     * 获取所有菜单
+     *
+     * @return
+     */
     @GetMapping("/tree")
     public R getMenus() {
-        return R.ok(blogMenuService.selectMenuTree(0));
+        return R.ok(PreUtil.buildMenus(blogMenuService.selectMenuTree(0)));
     }
 
     /**
