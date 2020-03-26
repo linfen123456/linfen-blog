@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogArticle;
+import com.xd.pre.blog.dto.BlogArticleDTO;
 import com.xd.pre.blog.service.IBlogArticleService;
 import com.xd.pre.blog.vo.BlogArticleVo;
 import com.xd.pre.common.utils.R;
@@ -98,6 +99,26 @@ public class BlogArticleController {
         queryWrapper.like("title", title);
         return R.ok(blogArticleService.page(page,queryWrapper));
     }
+
+    /**
+     * 查询文章Id查询详情
+     *
+     * @param id
+     * @return
+     */
+    @SysOperaLog(descrption = "查询文章Id查询详情")
+    @GetMapping("oneArticleById")
+//    @PreAuthorize("hasAuthority('blog:article:view')")
+    public R getOneById(Page page,Integer id) {
+        BlogArticleDTO blogArticleDTO = blogArticleService.selectById(id);
+        BlogArticle blogArticle = new BlogArticle();
+        blogArticle.setId(blogArticleDTO.getId());
+        blogArticle.setViews(blogArticleDTO.getViews() + 1);
+        blogArticleDTO.setViews(blogArticle.getViews());
+        blogArticleService.updateById(blogArticle);
+        return R.ok(blogArticleDTO);
+    }
+
 
     /**
      * 根据id查询文章

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.xd.pre.blog.domain.BaseDomain;
+import com.xd.pre.blog.domain.BlogDiscuss;
 import com.xd.pre.blog.domain.BlogTag;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -129,6 +130,14 @@ public class BlogArticleDTO extends BaseDomain implements Serializable {
      */
     @TableField(exist = false)
     private String avatar;
+
+
+    /**
+     * 评论
+     * 分数据库字段
+     */
+    @TableField(exist = false)
+    private List<BlogDiscuss> discusses;
 
 }
 

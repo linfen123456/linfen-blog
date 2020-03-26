@@ -25,4 +25,6 @@ public interface IBlogArticleService extends IService<BlogArticle> {
     BlogArticleVo queryById(Integer id);
 
     IPage<BlogArticleDTO> pageList(Page page, Wrapper queryWrapper);
+
+    BlogArticleDTO selectById(Integer id);
 }

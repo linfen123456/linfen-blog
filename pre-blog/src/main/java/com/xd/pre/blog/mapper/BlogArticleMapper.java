@@ -22,4 +22,7 @@ import java.util.List;
 public interface BlogArticleMapper extends BaseMapper<BlogArticle> {
 
     IPage<BlogArticleDTO> pageList(@Param("page") Page page, @Param(Constants.WRAPPER) Wrapper wrapper);
+
+    BlogArticleDTO selectByIds(Integer id);
+
 }

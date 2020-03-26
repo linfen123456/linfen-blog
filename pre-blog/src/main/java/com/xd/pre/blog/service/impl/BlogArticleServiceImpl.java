@@ -75,4 +75,9 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
     public IPage<BlogArticleDTO> pageList(Page page, Wrapper queryWrapper) {
         return baseMapper.pageList(page,queryWrapper);
     }
+
+    @Override
+    public BlogArticleDTO selectById(Integer id) {
+        return baseMapper.selectByIds(id);
+    }
 }

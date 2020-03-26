@@ -6,6 +6,8 @@ import com.xd.pre.blog.service.IBlogDiscussService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 评论 服务实现类
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class BlogDiscussServiceImpl extends ServiceImpl<BlogDiscussMapper, BlogDiscuss> implements IBlogDiscussService {
 
+    @Override
+    public List<BlogDiscuss> getRootBlogDiscussByArticleId(Integer articleId) {
+        return baseMapper.getRootBlogDiscussByArticleId(articleId);
+    }
 }

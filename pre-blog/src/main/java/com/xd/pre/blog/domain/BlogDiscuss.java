@@ -1,9 +1,12 @@
 package com.xd.pre.blog.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -66,5 +69,10 @@ public class BlogDiscuss extends BaseDomain implements Serializable {
 
     private Integer tenantId;
 
+    /**
+     * 子评论
+     */
+    @TableField(exist = false)
+    private List<BlogDiscuss> childrens;
 
 }

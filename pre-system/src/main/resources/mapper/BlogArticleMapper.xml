@@ -57,6 +57,33 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseOneResultMap" type="com.xd.pre.blog.dto.BlogArticleDTO">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="abstracts" property="abstracts" />
+        <result column="content" property="content" />
+        <result column="cover" property="cover" />
+        <result column="views" property="views" />
+        <result column="discuss" property="discuss" />
+        <result column="open_discuss" property="openDiscuss" />
+        <result column="type" property="type" />
+        <result column="istop" property="istop" />
+        <result column="sort" property="sort" />
+        <result column="is_view" property="isView" />
+        <result column="category_id" property="categoryId" />
+        <result column="user_id" property="userId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="categoryName" property="categoryName" />
+        <result column="username" property="username" />
+        <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="com.xd.pre.blog.domain.BlogTag" />
+        <collection property="discusses" select="com.xd.pre.blog.mapper.BlogDiscussMapper.getRootBlogDiscussByArticleId" column="id" ofType="com.xd.pre.blog.domain.BlogDiscuss" />
+    </resultMap>
+
     <select id="pageList" resultMap="BaseManyResultMap">
         select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
         from blog_article a
@@ -72,6 +99,16 @@
         select * from blog_article_tag  ats
 		LEFT JOIN blog_tag t ON ats.tag_id=t.id
 		where ats.article_id = #{id}
+    </select>
+
+    <!--通过ID查询-->
+    <select id="selectByIds" resultMap="BaseOneResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+            from blog_article a
+			left join sys_user u on a.user_id = u.user_id
+			left join blog_category c on a.category_id = c.id
+				where a.is_view = 0 and a.id=#{id}
+				order by a.istop,a.create_time DESC
     </select>
 
 </mapper>

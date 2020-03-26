@@ -2,6 +2,9 @@ package com.xd.pre.blog.mapper;
 
 import com.xd.pre.blog.domain.BlogDiscuss;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface BlogDiscussMapper extends BaseMapper<BlogDiscuss> {
 
+    public List<BlogDiscuss> getRootBlogDiscussByArticleId(@Param("articleId") Integer articleId);        //返回根菜单
+
+    //根据父一级菜单，返回所有子菜单
+    public List<BlogDiscuss> findDiscussByParentId(@Param("parentId") Integer parentId);
 }

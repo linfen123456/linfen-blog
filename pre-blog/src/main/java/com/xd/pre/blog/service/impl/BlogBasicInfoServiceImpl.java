@@ -1,6 +1,7 @@
 package com.xd.pre.blog.service.impl;
 
 import com.xd.pre.blog.domain.BlogBasicInfo;
+import com.xd.pre.blog.domain.BlogDiscuss;
 import com.xd.pre.blog.mapper.BlogBasicInfoMapper;
 import com.xd.pre.blog.service.IBlogBasicInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
