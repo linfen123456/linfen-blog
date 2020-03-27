@@ -96,14 +96,8 @@ public class BlogArticleController {
     @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("queryArticleByName")
     //@PreAuthorize("hasAuthority('blog:article:view')")
-    public R getList(Page page, String title,String userId) {
-        QueryWrapper queryWrapper = Wrappers.query();
-        queryWrapper.like("title", title);
-        if (!userId.equals("")) {
-            queryWrapper.eq("user_id", userId);
-        }
-        queryWrapper.like("title", title);
-        return R.ok(blogArticleService.page(page,queryWrapper));
+    public R getList(Page page, String title,Integer userId) {
+        return R.ok(blogArticleService.pageArticleByName(page,title,userId));
     }
 
     /**

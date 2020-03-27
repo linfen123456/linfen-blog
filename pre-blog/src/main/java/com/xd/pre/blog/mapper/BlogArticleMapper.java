@@ -29,4 +29,6 @@ public interface BlogArticleMapper extends BaseMapper<BlogArticle> {
     IPage<PigeonholeDTO> pagePigeonhole(Page page);
 
     IPage<BlogArticleDTO> pageListByTagId(Page page,@Param("tagId") Integer tagId);
+
+    IPage<BlogArticleDTO> pageArticleByName(Page page,@Param("title") String title,@Param("userId") Integer userId);
 }

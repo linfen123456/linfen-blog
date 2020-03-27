@@ -91,4 +91,9 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
     public IPage<BlogArticleDTO> pageListByTagId(Page page, Integer tagId) {
         return baseMapper.pageListByTagId(page,tagId);
     }
+
+    @Override
+    public IPage<BlogArticleDTO> pageArticleByName(Page page, String title, Integer userId) {
+        return baseMapper.pageArticleByName(page,title,userId);
+    }
 }

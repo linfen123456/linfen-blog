@@ -32,4 +32,6 @@ public interface IBlogArticleService extends IService<BlogArticle> {
     IPage<PigeonholeDTO> pagePigeonhole(Page page);
 
     IPage<BlogArticleDTO> pageListByTagId(Page page, Integer tagId);
+
+    IPage<BlogArticleDTO> pageArticleByName(Page page, String title, Integer userId);
 }

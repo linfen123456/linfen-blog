@@ -163,6 +163,20 @@
         )
         order by a.istop,a.create_time DESC
     </select>
+    <select id="pageArticleByName" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        from blog_article a
+        left join sys_user u on a.user_id = u.user_id
+        left join blog_category c on a.category_id = c.id
+        where a.is_view = 0
+        <if test="title != null and title != ''">
+          and  a.title LIKE concat(concat('%',#{title}),'%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and  a.userId = #{userId}
+        </if>
+        order by a.istop,a.create_time DESC
+    </select>
 
 
 </mapper>
