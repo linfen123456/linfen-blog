@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
-public class BaseDomain {
+public class BaseDomain implements Serializable{
     @TableField(value = "user_id", fill = FieldFill.INSERT) // 新增执行
     private Integer userId;
 

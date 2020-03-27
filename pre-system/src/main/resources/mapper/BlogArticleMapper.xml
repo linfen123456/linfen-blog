@@ -84,6 +84,15 @@
         <collection property="discusses" select="com.xd.pre.blog.mapper.BlogDiscussMapper.getRootBlogDiscussByArticleId" column="id" ofType="com.xd.pre.blog.domain.BlogDiscuss" />
     </resultMap>
 
+<!-- 归档查询映射结果 -->
+    <resultMap id="BasePigeonholeResultMap" type="com.xd.pre.blog.dto.PigeonholeDTO">
+        <id column="id" property="id" />
+        <id column="month" property="month" />
+        <id column="year" property="year" />
+        <id column="count" property="count" />
+        <collection property="articles" select="selectByYearMonth" column="{years=year,months=month}" ofType="com.xd.pre.blog.dto.BlogArticleDTO" />
+    </resultMap>
+
     <select id="pageList" resultMap="BaseManyResultMap">
         select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
         from blog_article a
@@ -91,10 +100,17 @@
 					left join blog_category c on a.category_id = c.id
 
 				where a.is_view = 0
+                <if test="ew.categoryId != null and ew.categoryId != ''">
+                    and a.category_id = #{ew.categoryId}
+                </if>
+                <if test="ew.title != null and ew.title != ''">
+                    and a.title = #{ew.title}
+                </if>
 				order by a.istop,a.create_time DESC
-        ${ew.customSqlSegment}
+
     </select>
 
+    <!--ID查询标签-->
     <select id="selectTagsByarticleId" resultMap="tagMap">
         select * from blog_article_tag  ats
 		LEFT JOIN blog_tag t ON ats.tag_id=t.id
@@ -110,5 +126,43 @@
 				where a.is_view = 0 and a.id=#{id}
 				order by a.istop,a.create_time DESC
     </select>
+
+    <!--通过年月查询-->
+    <select id="selectByYearMonth" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+            from blog_article a
+			left join sys_user u on a.user_id = u.user_id
+			left join blog_category c on a.category_id = c.id
+				where a.is_view = 0
+				 and YEAR(a.create_time)=#{years}
+				 and MONTH(a.create_time)=#{months}
+				order by a.istop,a.create_time DESC
+    </select>
+
+    <!--归档查询-->
+    <select id="pagePigeonhole" resultMap="BasePigeonholeResultMap">
+        select COUNT(MONTH(a.create_time)) as count,year(a.create_time) as year,month(a.create_time) as month
+        from blog_article a
+        where a.is_view = 0
+		GROUP BY YEAR(a.create_time),MONTH(a.create_time);
+    </select>
+    <select id="pageListByTagId" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        from blog_article a
+        left join sys_user u on a.user_id = u.user_id
+        left join blog_category c on a.category_id = c.id
+        where a.is_view = 0
+        and a.id IN (
+        select ats.article_id
+        from blog_article_tag ats
+        <where>
+            <if test="tagId != null and tagId != ''">
+                ats.tag_id = #{tagId}
+            </if>
+        </where>
+        )
+        order by a.istop,a.create_time DESC
+    </select>
+
 
 </mapper>

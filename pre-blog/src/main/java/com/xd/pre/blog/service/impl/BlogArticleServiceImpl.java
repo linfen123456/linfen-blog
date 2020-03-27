@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogArticle;
 import com.xd.pre.blog.domain.BlogArticleTag;
 import com.xd.pre.blog.dto.BlogArticleDTO;
+import com.xd.pre.blog.dto.PigeonholeDTO;
 import com.xd.pre.blog.mapper.BlogArticleMapper;
 import com.xd.pre.blog.service.IBlogArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -72,12 +73,22 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
     }
 
     @Override
-    public IPage<BlogArticleDTO> pageList(Page page, Wrapper queryWrapper) {
-        return baseMapper.pageList(page,queryWrapper);
+    public IPage<BlogArticleDTO> pageList(Page page, BlogArticle blogArticle) {
+        return baseMapper.pageList(page,blogArticle);
     }
 
     @Override
     public BlogArticleDTO selectById(Integer id) {
         return baseMapper.selectByIds(id);
+    }
+
+    @Override
+    public IPage<PigeonholeDTO> pagePigeonhole(Page page) {
+        return baseMapper.pagePigeonhole(page);
+    }
+
+    @Override
+    public IPage<BlogArticleDTO> pageListByTagId(Page page, Integer tagId) {
+        return baseMapper.pageListByTagId(page,tagId);
     }
 }

@@ -70,6 +70,19 @@ public class BlogDiscuss extends BaseDomain implements Serializable {
     private Integer tenantId;
 
     /**
+     * 头像 非数据库字段
+     */
+    @TableField(exist = false)
+    private String avatar;
+
+    /**
+     * 用户昵称 非数据库字段
+     */
+    @TableField(exist = false)
+    private String nickname1;
+
+
+    /**
      * 子评论
      */
     @TableField(exist = false)

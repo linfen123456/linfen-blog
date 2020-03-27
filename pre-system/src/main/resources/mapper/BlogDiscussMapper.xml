@@ -11,6 +11,8 @@
         <result column="user_id" property="userId" />
         <result column="type" property="type" />
         <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <result column="nickname1" property="nickname1" />
         <result column="email" property="email" />
         <result column="website" property="website" />
         <result column="create_time" property="createTime" />
@@ -27,6 +29,8 @@
         <result column="user_id" property="userId" />
         <result column="type" property="type" />
         <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <result column="nickname1" property="nickname1" />
         <result column="email" property="email" />
         <result column="website" property="website" />
         <result column="create_time" property="createTime" />
@@ -35,11 +39,15 @@
         <collection property="childrens" column="id" select="findDiscussByParentId"/>
     </resultMap>
     <select id="getRootBlogDiscussByArticleId" resultMap="BaseChildrenResultMap">
-        SELECT * FROM blog_discuss WHERE article_id =#{articleId} and parent_id is null
+        SELECT d.* ,u.nickname as nickname1,u.avatar FROM blog_discuss d
+        left join sys_user u on  d.type = 0 and d.user_id = u.user_id
+        WHERE article_id =#{articleId} and parent_id is null
     </select>
 
     <select id="findDiscussByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        SELECT * from blog_discuss where parent_id = #{id}
+        SELECT d.* ,u.nickname as nickname1,u.avatar  FROM blog_discuss d
+        left join sys_user u on  d.type = 0 and d.user_id = u.user_id
+        where parent_id = #{id}
     </select>
 
 </mapper>

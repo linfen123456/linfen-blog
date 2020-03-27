@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogArticle;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xd.pre.blog.dto.BlogArticleDTO;
+import com.xd.pre.blog.dto.PigeonholeDTO;
 import com.xd.pre.blog.vo.BlogArticleVo;
 
 import java.util.List;
@@ -24,7 +25,11 @@ public interface IBlogArticleService extends IService<BlogArticle> {
 
     BlogArticleVo queryById(Integer id);
 
-    IPage<BlogArticleDTO> pageList(Page page, Wrapper queryWrapper);
+    IPage<BlogArticleDTO> pageList(Page page, BlogArticle blogArticle);
 
     BlogArticleDTO selectById(Integer id);
+
+    IPage<PigeonholeDTO> pagePigeonhole(Page page);
+
+    IPage<BlogArticleDTO> pageListByTagId(Page page, Integer tagId);
 }

@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogArticle;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xd.pre.blog.dto.BlogArticleDTO;
+import com.xd.pre.blog.dto.PigeonholeDTO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -21,8 +22,11 @@ import java.util.List;
  */
 public interface BlogArticleMapper extends BaseMapper<BlogArticle> {
 
-    IPage<BlogArticleDTO> pageList(@Param("page") Page page, @Param(Constants.WRAPPER) Wrapper wrapper);
+    IPage<BlogArticleDTO> pageList(@Param("page") Page page, @Param(Constants.WRAPPER) BlogArticle blogArticle);
 
     BlogArticleDTO selectByIds(Integer id);
 
+    IPage<PigeonholeDTO> pagePigeonhole(Page page);
+
+    IPage<BlogArticleDTO> pageListByTagId(Page page,@Param("tagId") Integer tagId);
 }

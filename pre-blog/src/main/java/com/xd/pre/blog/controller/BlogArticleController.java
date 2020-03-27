@@ -3,10 +3,12 @@ package com.xd.pre.blog.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogArticle;
 import com.xd.pre.blog.dto.BlogArticleDTO;
+import com.xd.pre.blog.dto.PigeonholeDTO;
 import com.xd.pre.blog.service.IBlogArticleService;
 import com.xd.pre.blog.vo.BlogArticleVo;
 import com.xd.pre.common.utils.R;
@@ -14,6 +16,11 @@ import com.xd.pre.log.annotation.SysOperaLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * <p>
@@ -44,15 +51,15 @@ public class BlogArticleController {
     }
 
     /**
-     * 查询文章集合
+     * 用户查询文章集合
      *
      * @param page
      * @param blogArticle
      * @return
      */
-    @SysOperaLog(descrption = "查询文章集合")
+    @SysOperaLog(descrption = "用户查询文章集合")
     @GetMapping
-//    @PreAuthorize("hasAuthority('blog:article:view')")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getList(Page page, BlogArticle blogArticle) {
         QueryWrapper queryWrapper = Wrappers.query();
         if (blogArticle.getTitle()!=null&&!blogArticle.getTitle().equals("")) {
@@ -66,7 +73,7 @@ public class BlogArticleController {
     }
 
     /**
-     * 查询用户ID文章集合
+     * 查询文章集合
      *
      * @param page
      * @param blogArticle
@@ -74,10 +81,9 @@ public class BlogArticleController {
      */
     @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("allPage")
-//    @PreAuthorize("hasAuthority('blog:article:view')")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getPageList(Page page, BlogArticle blogArticle) {
-        Wrapper queryWrapper = Wrappers.query(blogArticle);
-        return R.ok(blogArticleService.pageList(page,queryWrapper));
+        return R.ok(blogArticleService.pageList(page,blogArticle));
     }
 
     /**
@@ -89,7 +95,7 @@ public class BlogArticleController {
      */
     @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("queryArticleByName")
-//    @PreAuthorize("hasAuthority('blog:article:view')")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getList(Page page, String title,String userId) {
         QueryWrapper queryWrapper = Wrappers.query();
         queryWrapper.like("title", title);
@@ -101,6 +107,43 @@ public class BlogArticleController {
     }
 
     /**
+     * 归档查询文章集合
+     *
+     * @param page
+     * @return
+     */
+    @SysOperaLog(descrption = "归档查询文章集合")
+    @GetMapping("queryArticlePigeonhole")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
+    public R getPigeonholeList(Page page) {
+        IPage<PigeonholeDTO> listIPage = blogArticleService.pagePigeonhole(page);
+        List<PigeonholeDTO> records = listIPage.getRecords();
+        //年份降序
+        Collections.sort(records, new Comparator<PigeonholeDTO>() {
+            @Override
+            public int compare(PigeonholeDTO o1, PigeonholeDTO o2) {
+                return o2.getYear().compareTo(o1.getYear());
+            }
+        });
+        listIPage.setRecords(records);
+        return R.ok(listIPage);
+    }
+
+    /**
+     * 标签查询文章集合
+     *
+     * @param page
+     * @param tagId
+     * @return
+     */
+    @SysOperaLog(descrption = "查询文章集合")
+    @GetMapping("queryArticleById")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
+    public R getPageListByTagId(Page page, Integer tagId) {
+        return R.ok(blogArticleService.pageListByTagId(page,tagId));
+    }
+
+    /**
      * 查询文章Id查询详情
      *
      * @param id
@@ -108,7 +151,7 @@ public class BlogArticleController {
      */
     @SysOperaLog(descrption = "查询文章Id查询详情")
     @GetMapping("oneArticleById")
-//    @PreAuthorize("hasAuthority('blog:article:view')")
+    //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getOneById(Page page,Integer id) {
         BlogArticleDTO blogArticleDTO = blogArticleService.selectById(id);
         BlogArticle blogArticle = new BlogArticle();
