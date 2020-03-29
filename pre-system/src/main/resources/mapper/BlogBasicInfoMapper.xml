@@ -4,11 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogBasicInfo">
-        <id column="key" property="key" />
+        <id column="keyname" property="keyname" />
         <result column="name" property="name" />
         <result column="content" property="content" />
         <result column="descriptions" property="descriptions" />
         <result column="user_id" property="userId" />
+        <result column="must" property="must" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
         <result column="tenant_id" property="tenantId" />

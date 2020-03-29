@@ -24,7 +24,7 @@ public class BlogBasicInfo extends BaseDomain implements Serializable {
     /**
      * 键名（英文）
      */
-    private String key;
+    private String keyname;
 
     /**
      * 名称
@@ -40,6 +40,11 @@ public class BlogBasicInfo extends BaseDomain implements Serializable {
      * 描述
      */
     private String descriptions;
+
+    /**
+     * 是否必须（0否，1是）
+     */
+    private Integer must;
 
     private Integer tenantId;
 

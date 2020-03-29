@@ -44,7 +44,7 @@ public class BlogDiscussController {
 //    @PreAuthorize("hasAuthority('blog:article:add')")
     public R insert(@RequestBody BlogDiscuss blogDiscuss) {
         log.info(JSON.toJSONString(blogDiscuss));
-        return R.ok(discussService.save(blogDiscuss));
+        return R.ok(discussService.saveBlogDiscuss(blogDiscuss));
     }
 
 }

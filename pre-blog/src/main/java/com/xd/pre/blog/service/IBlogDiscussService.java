@@ -15,4 +15,7 @@ import java.util.List;
  */
 public interface IBlogDiscussService extends IService<BlogDiscuss> {
     public List<BlogDiscuss> getRootBlogDiscussByArticleId(Integer articleId) ;
+
+    Integer saveBlogDiscuss(BlogDiscuss blogDiscuss);
+
 }
