@@ -10,6 +10,7 @@ import com.xd.pre.blog.service.IBlogBasicInfoService;
 import com.xd.pre.common.utils.R;
 import com.xd.pre.log.annotation.SysOperaLog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import sun.invoke.util.Wrapper;
@@ -72,6 +73,7 @@ public class BlogBasicInfoController {
      * @param page
      * @return
      */
+    @Cacheable(cacheNames = "keyValueBasicInfo" ,key = "keyValueBasicInfo")
     @SysOperaLog(descrption = "查询基本信息键值对集合")
     @GetMapping("keyValueList")
 //    @PreAuthorize("hasAuthority('blog:basic-info:view')")
