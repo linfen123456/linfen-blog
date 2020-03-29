@@ -1,7 +1,12 @@
 package com.xd.pre.blog.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xd.pre.blog.domain.BlogLink;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xd.pre.blog.dto.LinkDTO;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +18,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBlogLinkService extends IService<BlogLink> {
 
+    IPage<LinkDTO> orderByAll(Page page, BlogLink blogLink);
 }

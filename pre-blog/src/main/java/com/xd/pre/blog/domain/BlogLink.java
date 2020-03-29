@@ -41,6 +41,11 @@ public class BlogLink extends BaseDomain implements Serializable {
     private String descriptions;
 
     /**
+     * 类型
+     */
+    private String type;
+
+    /**
      * logo
      */
     private String logo;
@@ -59,6 +64,11 @@ public class BlogLink extends BaseDomain implements Serializable {
      * 状态（0审核中，1审核通过，2禁止访问，3隐藏）
      */
     private Integer status;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
 
     private Integer tenantId;
 
