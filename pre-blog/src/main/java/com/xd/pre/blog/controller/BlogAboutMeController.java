@@ -45,7 +45,6 @@ public class BlogAboutMeController {
      * @param blogAboutMe
      * @return
      */
-    @SysOperaLog(descrption = "查询关于我集合")
     @GetMapping
 //    @PreAuthorize("hasAuthority('blog:about_me:view')")
     public R getList(Page page,  BlogAboutMe blogAboutMe) {
@@ -59,7 +58,6 @@ public class BlogAboutMeController {
      * @param blogAboutMe
      * @return
      */
-    @SysOperaLog(descrption = "查询所有关于我集合")
     @GetMapping("/all")
 //    @PreAuthorize("hasAuthority('blog:category:view')")
     public R getAllList(Page page,  BlogAboutMe blogAboutMe) {

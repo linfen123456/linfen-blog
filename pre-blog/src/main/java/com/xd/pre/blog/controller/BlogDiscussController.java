@@ -39,7 +39,6 @@ public class BlogDiscussController {
      * @param blogDiscuss
      * @return
      */
-    @SysOperaLog(descrption = "保存评论")
     @PostMapping
 //    @PreAuthorize("hasAuthority('blog:article:add')")
     public R insert(@RequestBody BlogDiscuss blogDiscuss) {

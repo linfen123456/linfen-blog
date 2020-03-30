@@ -3,6 +3,7 @@ package com.xd.pre.security.util;
 import com.alibaba.fastjson.JSON;
 import com.xd.pre.common.exception.PreBaseException;
 import com.xd.pre.common.utils.R;
+import com.xd.pre.security.LoginType;
 import com.xd.pre.security.PreSecurityUser;
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpStatus;
@@ -49,6 +50,21 @@ public class SecurityUtil {
             return (PreSecurityUser) getAuthentication().getPrincipal();
         } catch (Exception e) {
             throw new PreBaseException("登录状态过期", HttpStatus.UNAUTHORIZED.value());
+        }
+    }
+
+
+    /**
+     * @Author 李号东
+     * @Description 获取用户
+     * @Date 11:29 2019-05-10
+     **/
+    public PreSecurityUser getDefaultUser(){
+        try {
+            return (PreSecurityUser) getAuthentication().getPrincipal();
+        } catch (Exception e) {
+
+            return new PreSecurityUser(-1,"未登录","000",null, LoginType.normal);
         }
     }
 }

@@ -57,7 +57,6 @@ public class BlogArticleController {
      * @param blogArticle
      * @return
      */
-    @SysOperaLog(descrption = "用户查询文章集合")
     @GetMapping
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getList(Page page, BlogArticle blogArticle) {
@@ -79,7 +78,6 @@ public class BlogArticleController {
      * @param blogArticle
      * @return
      */
-    @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("allPage")
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getPageList(Page page, BlogArticle blogArticle) {
@@ -93,7 +91,6 @@ public class BlogArticleController {
      * @param title
      * @return
      */
-    @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("queryArticleByName")
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getList(Page page, String title,Integer userId) {
@@ -106,7 +103,6 @@ public class BlogArticleController {
      * @param page
      * @return
      */
-    @SysOperaLog(descrption = "归档查询文章集合")
     @GetMapping("queryArticlePigeonhole")
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getPigeonholeList(Page page) {
@@ -130,7 +126,6 @@ public class BlogArticleController {
      * @param tagId
      * @return
      */
-    @SysOperaLog(descrption = "查询文章集合")
     @GetMapping("queryArticleById")
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getPageListByTagId(Page page, Integer tagId) {
@@ -143,7 +138,6 @@ public class BlogArticleController {
      * @param id
      * @return
      */
-    @SysOperaLog(descrption = "查询文章Id查询详情")
     @GetMapping("oneArticleById")
     //@PreAuthorize("hasAuthority('blog:article:view')")
     public R getOneById(Page page,Integer id) {
@@ -163,7 +157,6 @@ public class BlogArticleController {
      * @param id
      * @return
      */
-    @SysOperaLog(descrption = "根据id查询文章")
     @GetMapping("/{id}")
     public R byId(@PathVariable("id") Integer id) {
         return R.ok(blogArticleService.queryById(id));

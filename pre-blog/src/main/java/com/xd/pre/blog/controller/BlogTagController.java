@@ -46,7 +46,6 @@ public class BlogTagController {
      * @param blogTag
      * @return
      */
-    @SysOperaLog(descrption = "查询标签集合")
     @GetMapping
 //    @PreAuthorize("hasAuthority('blog:tag:view')")
     public R getList(Page page, BlogTag blogTag) {
@@ -60,7 +59,6 @@ public class BlogTagController {
      * @param blogTag
      * @return
      */
-    @SysOperaLog(descrption = "查询所有标签集合")
     @GetMapping("/all")
 //    @PreAuthorize("hasAuthority('blog:category:view')")
     public R getAllList(Page page, BlogTag blogTag) {

@@ -74,7 +74,6 @@ public class BlogBasicInfoController {
      * @return
      */
     @Cacheable(cacheNames = "keyValueBasicInfo" ,key = "keyValueBasicInfo")
-    @SysOperaLog(descrption = "查询基本信息键值对集合")
     @GetMapping("keyValueList")
 //    @PreAuthorize("hasAuthority('blog:basic-info:view')")
     public R getKeyValueList(Page page) {

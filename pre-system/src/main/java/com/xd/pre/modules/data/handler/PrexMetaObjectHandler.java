@@ -23,7 +23,8 @@ public class PrexMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        PreSecurityUser user = SecurityUtil.getUser();
+        PreSecurityUser user = SecurityUtil.getDefaultUser();
+
         log.info("start insert fill ....");
         //避免使用metaObject.setValue()
         if (metaObject.hasGetter("delFlag") ) {
@@ -31,6 +32,10 @@ public class PrexMetaObjectHandler implements MetaObjectHandler {
         }
         if (metaObject.hasGetter("createTime") ) {
             this.setFieldValByName("createTime", new Date(), metaObject);
+
+            if (user.getUserId() == -1) {//跳过未登录用户
+                return;
+            }
             this.setFieldValByName("userId", user.getUserId(), metaObject);
         }
     }
@@ -38,14 +43,20 @@ public class PrexMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
-        PreSecurityUser user = SecurityUtil.getUser();
-
-        if (metaObject.hasGetter("operator") ) {
-            this.setFieldValByName("operator", user.getUsername(), metaObject);        }
+        PreSecurityUser user = SecurityUtil.getDefaultUser();
 
         if (metaObject.hasGetter("updateTime") ) {
             this.setFieldValByName("updateTime", new Date(), metaObject);
         }
+
+        if (user.getUserId() == -1) {//跳过未登录用户
+            return;
+        }
+
+        if (metaObject.hasGetter("operator") ) {
+            this.setFieldValByName("operator", user.getUsername(), metaObject);        }
+
+
 
     }
 }

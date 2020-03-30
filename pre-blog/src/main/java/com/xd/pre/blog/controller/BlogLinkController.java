@@ -46,7 +46,6 @@ public class BlogLinkController {
      * @param blogLink
      * @return
      */
-    @SysOperaLog(descrption = "查询友联集合")
     @GetMapping
 //    @PreAuthorize("hasAuthority('blog:link:view')")
     public R getList(Page page, BlogLink blogLink) {
@@ -60,7 +59,6 @@ public class BlogLinkController {
      * @param blogLink
      * @return
      */
-    @SysOperaLog(descrption = "查询所有友联集合")
     @GetMapping("/all")
 //    @PreAuthorize("hasAuthority('blog:category:view')")
     public R getAllList(Page page, BlogLink blogLink) {
@@ -74,7 +72,6 @@ public class BlogLinkController {
      * @param blogLink
      * @return
      */
-    @SysOperaLog(descrption = "查询所有友联集合")
     @GetMapping("/orderByAll")
 //    @PreAuthorize("hasAuthority('blog:category:view')")
     public R getOrderByAllList(Page page, BlogLink blogLink) {
