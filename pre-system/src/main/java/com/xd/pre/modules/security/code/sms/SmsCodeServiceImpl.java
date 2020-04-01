@@ -21,7 +21,7 @@ public class SmsCodeServiceImpl implements SmsCodeService {
     /**
      * 登录短信
      */
-    private final static String LOGIN_TEMPLATE = "【小东科技】登录验证码：" + randNum + "，如非本人操作，请忽略此短信。";
+    private final static String LOGIN_TEMPLATE = "【淋汾博客】登录验证码：" + randNum + "，如非本人操作，请忽略此短信。";
 
 
     @Override
