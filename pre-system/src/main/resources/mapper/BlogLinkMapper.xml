@@ -25,6 +25,9 @@
         <result column="count" property="count" />
         <collection property="links" select="selectLinkByType" column="type" />
     </resultMap>
+    <update id="updateVisibleById">
+        update blog_link set pv =pv +1 where id=#{id}
+    </update>
 
     <select id="selectLinkByType"  resultMap="BaseResultMap">
         select *

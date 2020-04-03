@@ -19,4 +19,6 @@ import java.util.Map;
 public interface IBlogLinkService extends IService<BlogLink> {
 
     IPage<LinkDTO> orderByAll(Page page, BlogLink blogLink);
+
+    Integer updateVisibleById(BlogLink blogLink);
 }

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 <div align="center">
 <div style="height:256px; width:256px; text-align: center;">
@@ -129,4 +127,3 @@ Pre微服务版本Spring Cloud、Spring Cloud Alibaba、Oauth2
 =======
 # linfen-blog
 基于Spring Boot +Vue前后端分离项目
->>>>>>> effa4c67a02123d4d583a638a9eb21273a0a54f8

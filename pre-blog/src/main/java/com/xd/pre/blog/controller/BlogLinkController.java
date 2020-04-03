@@ -92,6 +92,18 @@ public class BlogLinkController {
     }
 
     /**
+     * 更新友联访问人数
+     *
+     * @param blogLink
+     * @return
+     */
+    @SysOperaLog(descrption = "更新访问量友联")
+    @PutMapping("updatevisible")
+    public R updateVisible(@RequestBody BlogLink blogLink) {
+        return R.ok(blogLinkService.updateVisibleById(blogLink));
+    }
+
+    /**
      * 根据id删除友联
      *
      * @param id

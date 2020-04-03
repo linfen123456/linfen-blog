@@ -26,4 +26,9 @@ public class BlogLinkServiceImpl extends ServiceImpl<BlogLinkMapper, BlogLink> i
     public IPage<LinkDTO> orderByAll(Page page, BlogLink blogLink) {
         return baseMapper.orderByAll(page,blogLink);
     }
+
+    @Override
+    public Integer updateVisibleById(BlogLink blogLink) {
+        return baseMapper.updateVisibleById(blogLink);
+    }
 }

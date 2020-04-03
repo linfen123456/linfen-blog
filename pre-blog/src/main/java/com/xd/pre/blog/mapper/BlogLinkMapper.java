@@ -19,4 +19,6 @@ import java.util.Map;
 public interface BlogLinkMapper extends BaseMapper<BlogLink> {
 
     IPage<LinkDTO> orderByAll(Page page, BlogLink blogLink);
+
+    Integer updateVisibleById(BlogLink blogLink);
 }
