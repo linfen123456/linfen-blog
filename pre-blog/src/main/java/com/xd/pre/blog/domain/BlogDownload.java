@@ -44,12 +44,17 @@ public class BlogDownload extends BaseDomain implements Serializable {
     /**
      * 大小
      */
-    private Double size;
+    private Double fileSize;
 
     /**
      * 所属类型（0文档，1代码，2工具，3其他）
      */
-    private Boolean type;
+    private Integer type;
+
+    /**
+     * 地址
+     */
+    private String url;
 
     /**
      * 下载量

@@ -8,8 +8,9 @@
         <result column="article_id" property="articleId" />
         <result column="title" property="title" />
         <result column="descriptions" property="descriptions" />
-        <result column="size" property="size" />
+        <result column="file_size" property="fileSize" />
         <result column="type" property="type" />
+        <result column="url" property="url" />
         <result column="downloads" property="downloads" />
         <result column="user_id" property="userId" />
         <result column="create_time" property="createTime" />
