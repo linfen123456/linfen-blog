@@ -37,6 +37,11 @@ public class BlogDownload extends BaseDomain implements Serializable {
     private String title;
 
     /**
+     * 原来文件名称
+     */
+    private String originName;
+
+    /**
      * 描述
      */
     private String descriptions;

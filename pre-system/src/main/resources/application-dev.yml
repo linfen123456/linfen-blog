@@ -97,7 +97,21 @@ spring:
     restart:
       enabled: true
 
+# 文件上传配置
+  servlet:
+    multipart:
+      max-request-size: 25MB
+      max-file-size: 25MB
+
 #debug
 debug: true
 
 uploadFileServerPathPrefix: /Users/lihaodong/Desktop/files
+
+#七牛云配置
+qiniu:
+  accessKey: LAl6jT_qGLWRA--aJIf5lbHPygWTCP2h-r1PaUkr
+  secretKey: t3zC3cFEUSKJLNBpFtfJB-lgXdXXxIAsLfKy90_L
+  bucketName: linfen-blog
+  fileDomain: http://q89koq7ls.bkt.clouddn.com #文件访问域名前缀
+

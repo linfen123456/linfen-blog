@@ -9,6 +9,7 @@
         <result column="title" property="title" />
         <result column="descriptions" property="descriptions" />
         <result column="file_size" property="fileSize" />
+        <result column="origin_name" property="originName" />
         <result column="type" property="type" />
         <result column="url" property="url" />
         <result column="downloads" property="downloads" />
