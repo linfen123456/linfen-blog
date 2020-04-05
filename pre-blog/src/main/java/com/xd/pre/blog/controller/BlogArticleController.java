@@ -186,7 +186,8 @@ public class BlogArticleController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('blog:article:delete')")
     public R delete(@PathVariable("id") Integer id) {
-        return R.ok(blogArticleService.removeById(id));
+        blogArticleService.deleteByArticleId(id);
+        return R.ok();
     }
 
 }

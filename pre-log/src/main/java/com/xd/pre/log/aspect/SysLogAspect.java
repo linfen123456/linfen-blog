@@ -90,7 +90,8 @@ public class SysLogAspect {
         sysLog.setActionMethod(joinPoint.getSignature().getName());
         sysLog.setFinishTime(LocalDateTime.now());
         // 参数
-        sysLog.setParams(Arrays.toString(args));
+        String params = Arrays.toString(args);
+        sysLog.setParams(params.length() <1000?params:params.substring(0,1000));
         sysLog.setDescription(LogUtil.getControllerMethodDescription(joinPoint));
         long endTime = Instant.now().toEpochMilli();
         sysLog.setConsumingTime(endTime - beginTime);
