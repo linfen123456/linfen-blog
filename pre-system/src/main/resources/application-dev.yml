@@ -68,15 +68,15 @@ spring:
     username: root
   mail:
     host: smtp.qq.com
-    password: ENC(b1a/IYyqK7WL70rlA7JZxmqqoLDY2rtLvX9cNp5YWP0=)
+    username: ENC(A94uUweXNjiP4AhYHNfDKZWqTLIR4RzftlEUKDkBvLI=)
+    password: ENC(0lmSKzAD+NKDfWtd6zDpG1UpwwdC9la8z5L23wkK57s=)
     properties:
       mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
-    username: ENC(F+SSuP2w34EywET9mD9eOzfKk2/w0AUaj1w+TVNmyj8=)
+      smtp:
+      auth: true
+      starttls:
+      enable: true
+      required: true
   main:
     allow-bean-definition-overriding: true
   redis:

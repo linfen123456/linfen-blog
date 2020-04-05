@@ -39,11 +39,11 @@ public class EmailUtil {
         //接收者
         message.setTo(to);
         //主题
-        message.setSubject("修改pre系统用户邮箱");
+        message.setSubject("修改淋汾博客用户邮箱");
         //邮件内容
         // 验证码
         String code = PreUtil.codeGen(4);
-        message.setText("【Pre系统】" + ",验证码:" + code + "。" + "你正在使用邮箱验证码修改功能，该验证码仅用于身份验证，请勿透露给他人使用");
+        message.setText("【淋汾博客】" + ",验证码:" + code + "。" + "你正在使用邮箱验证码修改功能，该验证码仅用于身份验证，请勿透露给他人使用");
         // 发送邮件
         javaMailSender.send(message);
         request.getSession().setAttribute(PreConstant.RESET_MAIL, code.toLowerCase());
