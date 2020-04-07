@@ -3,7 +3,7 @@
 <mapper namespace="com.xd.pre.mapper.SysRoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.modules.sys.domain.SysRole">
+    <resultMap id="BaseResultMap" type="cn.linfenw.modules.sys.domain.SysRole">
         <id column="role_id" property="roleId" />
         <result column="role_name" property="roleName" />
         <result column="role_desc" property="roleDesc" />

@@ -3,7 +3,7 @@
 <mapper namespace="com.xd.pre.mapper.SysDictMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.modules.sys.domain.SysDict">
+    <resultMap id="BaseResultMap" type="cn.linfenw.modules.sys.domain.SysDict">
         <id column="id" property="id" />
         <result column="value" property="value" />
         <result column="label" property="label" />

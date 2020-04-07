@@ -3,7 +3,7 @@
 <mapper namespace="com.xd.pre.mapper.SysMenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.modules.sys.domain.SysMenu">
+    <resultMap id="BaseResultMap" type="cn.linfenw.modules.sys.domain.SysMenu">
         <id column="menu_id" property="menuId" />
         <result column="name" property="name" />
         <result column="perms" property="perms" />

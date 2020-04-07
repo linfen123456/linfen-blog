@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xd.pre.modules.sys.mapper.SysUserMapper">
+<mapper namespace="cn.linfenw.modules.sys.mapper.SysUserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.modules.sys.domain.SysUser">
+    <resultMap id="BaseResultMap" type="cn.linfenw.modules.sys.domain.SysUser">
         <id column="user_id" property="userId"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
@@ -18,8 +18,8 @@
         <result column="update_time" property="updateTime"/>
         <result column="lock_flag" property="lockFlag"/>
         <result column="del_flag" property="delFlag"/>
-        <collection property="roleList" ofType="com.xd.pre.modules.sys.domain.SysRole"
-                    select="com.xd.pre.modules.sys.mapper.SysRoleMapper.listRolesByUserId" column="user_id">
+        <collection property="roleList" ofType="cn.linfenw.modules.sys.domain.SysRole"
+                    select="cn.linfenw.modules.sys.mapper.SysRoleMapper.listRolesByUserId" column="user_id">
         </collection>
     </resultMap>
 

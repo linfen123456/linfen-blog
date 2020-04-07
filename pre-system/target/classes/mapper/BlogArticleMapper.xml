@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.linfenw.pre.blog.blog.mapper.BlogArticleMapper">
+<mapper namespace="cn.linfenw.blog.mapper.BlogArticleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.linfenw.pre.blog.blog.domain.BlogArticle">
+    <resultMap id="BaseResultMap" type="cn.linfenw.blog.domain.BlogArticle">
         <id column="id" property="id" />
         <result column="title" property="title" />
         <result column="abstracts" property="abstracts" />
@@ -24,7 +24,7 @@
     </resultMap>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseManyResultMap" type="cn.linfenw.pre.blog.blog.dto.BlogArticleDTO">
+    <resultMap id="BaseManyResultMap" type="cn.linfenw.blog.dto.BlogArticleDTO">
         <id column="id" property="id" />
         <result column="title" property="title" />
         <result column="abstracts" property="abstracts" />
@@ -46,10 +46,10 @@
         <result column="username" property="username" />
         <result column="nickname" property="nickname" />
         <result column="avatar" property="avatar" />
-        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="cn.linfenw.pre.blog.blog.domain.BlogTag" />
+        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="cn.linfenw.blog.domain.BlogTag" />
     </resultMap>
 
-    <resultMap id="tagMap" type="cn.linfenw.pre.blog.blog.domain.BlogTag">
+    <resultMap id="tagMap" type="cn.linfenw.blog.domain.BlogTag">
         <id property="id" column="id"/>
         <id property="userId" column="user_id"/>
         <result property="name" column="name"/>
@@ -58,7 +58,7 @@
     </resultMap>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseOneResultMap" type="cn.linfenw.pre.blog.blog.dto.BlogArticleDTO">
+    <resultMap id="BaseOneResultMap" type="cn.linfenw.blog.dto.BlogArticleDTO">
         <id column="id" property="id" />
         <result column="title" property="title" />
         <result column="abstracts" property="abstracts" />
@@ -80,17 +80,17 @@
         <result column="username" property="username" />
         <result column="nickname" property="nickname" />
         <result column="avatar" property="avatar" />
-        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="cn.linfenw.pre.blog.blog.domain.BlogTag" />
-        <collection property="discusses" select="cn.linfenw.pre.blog.blog.mapper.BlogDiscussMapper.getRootBlogDiscussByArticleId" column="id" ofType="cn.linfenw.pre.blog.blog.domain.BlogDiscuss" />
+        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="cn.linfenw.blog.domain.BlogTag" />
+        <collection property="discusses" select="cn.linfenw.blog.mapper.BlogDiscussMapper.getRootBlogDiscussByArticleId" column="id" ofType="cn.linfenw.blog.domain.BlogDiscuss" />
     </resultMap>
 
 <!-- 归档查询映射结果 -->
-    <resultMap id="BasePigeonholeResultMap" type="cn.linfenw.pre.blog.blog.dto.PigeonholeDTO">
+    <resultMap id="BasePigeonholeResultMap" type="cn.linfenw.blog.dto.PigeonholeDTO">
         <id column="id" property="id" />
         <id column="month" property="month" />
         <id column="year" property="year" />
         <id column="count" property="count" />
-        <collection property="articles" select="selectByYearMonth" column="{years=year,months=month}" ofType="cn.linfenw.pre.blog.blog.dto.BlogArticleDTO" />
+        <collection property="articles" select="selectByYearMonth" column="{years=year,months=month}" ofType="cn.linfenw.blog.dto.BlogArticleDTO" />
     </resultMap>
 
     <select id="pageList" resultMap="BaseManyResultMap">
