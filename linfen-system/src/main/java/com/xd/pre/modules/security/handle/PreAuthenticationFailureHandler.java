@@ -1,9 +1,9 @@
 package com.xd.pre.modules.security.handle;
 
 
-import com.xd.pre.common.exception.ValidateCodeException;
+import cn.linfenw.pre.common.common.exception.ValidateCodeException;
 import com.xd.pre.security.util.SecurityUtil;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;

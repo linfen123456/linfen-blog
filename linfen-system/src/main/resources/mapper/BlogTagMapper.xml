@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xd.pre.blog.mapper.BlogTagMapper">
+<mapper namespace="cn.linfenw.pre.blog.blog.mapper.BlogTagMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogTag">
+    <resultMap id="BaseResultMap" type="cn.linfenw.pre.blog.blog.domain.BlogTag">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="user_id" property="userId" />

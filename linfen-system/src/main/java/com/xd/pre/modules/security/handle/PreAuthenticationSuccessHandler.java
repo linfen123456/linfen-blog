@@ -5,7 +5,7 @@ import com.xd.pre.security.PreSecurityUser;
 import com.xd.pre.modules.security.PreSocialUser;
 import com.xd.pre.modules.security.util.JwtUtil;
 import com.xd.pre.security.util.SecurityUtil;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

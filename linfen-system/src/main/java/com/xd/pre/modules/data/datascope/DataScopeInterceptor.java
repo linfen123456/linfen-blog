@@ -7,7 +7,7 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.handlers.AbstractSqlParserHandler;
-import com.xd.pre.common.exception.PreBaseException;
+import cn.linfenw.pre.common.common.exception.PreBaseException;
 import com.xd.pre.security.PreSecurityUser;
 import com.xd.pre.security.util.SecurityUtil;
 import com.xd.pre.modules.data.enums.DataScopeTypeEnum;

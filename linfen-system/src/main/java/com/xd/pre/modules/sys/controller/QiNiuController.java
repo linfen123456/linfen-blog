@@ -2,7 +2,7 @@ package com.xd.pre.modules.sys.controller;
 
 import cn.hutool.core.date.DateUtil;
 import com.qiniu.storage.model.DefaultPutRet;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.modules.sys.util.QiniuUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

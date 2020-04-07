@@ -3,7 +3,7 @@ package com.xd.pre.log.controller;
 
 import com.xd.pre.log.annotation.SysOperaLog;
 import com.xd.pre.log.service.ISysLogService;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

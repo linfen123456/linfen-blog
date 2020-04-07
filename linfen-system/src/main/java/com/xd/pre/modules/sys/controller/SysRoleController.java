@@ -4,7 +4,7 @@ package com.xd.pre.modules.sys.controller;
 import com.xd.pre.log.annotation.SysOperaLog;
 import com.xd.pre.modules.sys.dto.RoleDTO;
 import com.xd.pre.modules.sys.service.ISysRoleService;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

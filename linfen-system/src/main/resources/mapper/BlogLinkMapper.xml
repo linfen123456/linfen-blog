@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xd.pre.blog.mapper.BlogLinkMapper">
+<mapper namespace="cn.linfenw.pre.blog.blog.mapper.BlogLinkMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogLink">
+    <resultMap id="BaseResultMap" type="cn.linfenw.pre.blog.blog.domain.BlogLink">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="descriptions" property="descriptions" />
@@ -19,7 +19,7 @@
         <result column="tenant_id" property="tenantId" />
     </resultMap>
 
-    <resultMap id="orderByType" type="com.xd.pre.blog.dto.LinkDTO">
+    <resultMap id="orderByType" type="cn.linfenw.pre.blog.blog.dto.LinkDTO">
         <result column="type" property="type" />
         <result column="sort" property="sort" />
         <result column="count" property="count" />

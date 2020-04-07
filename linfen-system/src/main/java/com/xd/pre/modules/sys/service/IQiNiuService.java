@@ -1,6 +1,6 @@
 package com.xd.pre.modules.sys.service;
 
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 
 import java.io.InputStream;
 

@@ -1,6 +1,6 @@
 package com.xd.pre.modules.security.handle;
 
-import com.xd.pre.common.exception.PreBaseException;
+import cn.linfenw.pre.common.common.exception.PreBaseException;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.*;
 import org.springframework.stereotype.Component;

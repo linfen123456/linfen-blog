@@ -1,7 +1,7 @@
 package com.xd.pre.modules.data.tenant;
 
 import cn.hutool.core.util.StrUtil;
-import com.xd.pre.common.constant.PreConstant;
+import cn.linfenw.pre.common.common.constant.PreConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

@@ -2,15 +2,12 @@ package com.xd.pre.modules.security.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.wf.captcha.ArithmeticCaptcha;
-import com.xd.pre.common.constant.PreConstant;
-import com.xd.pre.common.exception.ValidateCodeException;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.constant.PreConstant;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.modules.security.code.sms.AliYunSmsUtils;
 import com.xd.pre.modules.security.code.sms.SmsResponse;
-import com.xd.pre.modules.sys.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;

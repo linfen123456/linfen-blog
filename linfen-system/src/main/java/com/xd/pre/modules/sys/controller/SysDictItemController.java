@@ -2,7 +2,7 @@ package com.xd.pre.modules.sys.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.log.annotation.SysOperaLog;
 import com.xd.pre.modules.sys.domain.SysDictItem;
 import com.xd.pre.modules.sys.service.ISysDictItemService;

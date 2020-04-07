@@ -1,8 +1,8 @@
 package com.xd.pre.security.util;
 
 import com.alibaba.fastjson.JSON;
-import com.xd.pre.common.exception.PreBaseException;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.exception.PreBaseException;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.security.LoginType;
 import com.xd.pre.security.PreSecurityUser;
 import lombok.experimental.UtilityClass;

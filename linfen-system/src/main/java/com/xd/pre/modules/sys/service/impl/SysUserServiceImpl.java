@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xd.pre.common.exception.PreBaseException;
+import cn.linfenw.pre.common.common.exception.PreBaseException;
 import com.xd.pre.modules.data.datascope.DataScope;
 import com.xd.pre.security.PreSecurityUser;
 import com.xd.pre.modules.security.social.SocialRedisHelper;

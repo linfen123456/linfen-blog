@@ -1,6 +1,6 @@
 package com.xd.pre.generator.controller;
 
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.generator.domain.CodeGenConfig;
 import com.xd.pre.generator.service.SysCodeService;
 import org.springframework.beans.factory.annotation.Autowired;

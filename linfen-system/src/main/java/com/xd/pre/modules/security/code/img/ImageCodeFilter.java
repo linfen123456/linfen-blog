@@ -1,8 +1,8 @@
 package com.xd.pre.modules.security.code.img;
 
 import cn.hutool.core.util.StrUtil;
-import com.xd.pre.common.exception.ValidateCodeException;
-import com.xd.pre.common.constant.PreConstant;
+import cn.linfenw.pre.common.common.exception.ValidateCodeException;
+import cn.linfenw.pre.common.common.constant.PreConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;

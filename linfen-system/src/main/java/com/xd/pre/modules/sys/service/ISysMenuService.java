@@ -3,7 +3,7 @@ package com.xd.pre.modules.sys.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xd.pre.modules.sys.domain.SysMenu;
 import com.xd.pre.modules.sys.dto.MenuDTO;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 
 import java.io.Serializable;
 import java.util.List;

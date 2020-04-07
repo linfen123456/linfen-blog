@@ -3,7 +3,7 @@ package com.xd.pre.modules.sys.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.xd.pre.common.exception.ValidateCodeException;
+import cn.linfenw.pre.common.common.exception.ValidateCodeException;
 import com.xd.pre.modules.security.code.sms.SmsCodeService;
 import com.xd.pre.modules.security.social.PreConnectionData;
 import com.xd.pre.modules.security.social.SocialRedisHelper;
@@ -11,7 +11,7 @@ import com.xd.pre.modules.security.social.SocialUserInfo;
 import com.xd.pre.modules.sys.domain.SysUser;
 import com.xd.pre.modules.sys.dto.UserDTO;
 import com.xd.pre.modules.sys.service.ISysUserService;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.security.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Classname IndexController

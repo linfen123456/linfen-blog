@@ -2,7 +2,7 @@ package com.xd.pre.modules.security.handle;
 
 import cn.hutool.http.HttpStatus;
 import com.xd.pre.security.util.SecurityUtil;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

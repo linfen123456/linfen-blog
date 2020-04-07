@@ -1,6 +1,6 @@
 package com.xd.pre.modules.sys.util;
 
-import com.xd.pre.common.constant.PreConstant;
+import cn.linfenw.pre.common.common.constant.PreConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

@@ -5,7 +5,7 @@ import com.xd.pre.log.annotation.SysOperaLog;
 import com.xd.pre.modules.sys.domain.SysDept;
 import com.xd.pre.modules.sys.dto.DeptDTO;
 import com.xd.pre.modules.sys.service.ISysDeptService;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

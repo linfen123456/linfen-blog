@@ -7,14 +7,11 @@ import com.xd.pre.security.util.SecurityUtil;
 import com.xd.pre.modules.sys.domain.SysMenu;
 import com.xd.pre.modules.sys.dto.MenuDTO;
 import com.xd.pre.modules.sys.service.ISysMenuService;
-import com.xd.pre.common.utils.R;
+import cn.linfenw.pre.common.common.utils.R;
 import com.xd.pre.modules.sys.util.PreUtil;
-import com.xd.pre.modules.sys.vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * <p>
