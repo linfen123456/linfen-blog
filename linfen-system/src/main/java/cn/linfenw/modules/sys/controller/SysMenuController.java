@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * 菜单权限表 前端控制器
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-04-21
  */
 @RestController

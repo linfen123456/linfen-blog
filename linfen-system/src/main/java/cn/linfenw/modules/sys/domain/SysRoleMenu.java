@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
  * 角色菜单表
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-04-21
  */
 @Data

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @Classname SysSocialController
  * @Description 社交登录
- * @Author Created by Lihaodong (alias:小东啊) lihaodongmail@163.com
+ * @Author linfen
  * @Date 2019-07-17 16:51
  * @Version 1.0
  */

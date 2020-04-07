@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * 租户表 前端控制器
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-08-10
  */
 @RestController

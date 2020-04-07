@@ -13,7 +13,7 @@ import java.util.List;
  * 字典表 服务类
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-05-17
  */
 public interface ISysDictService extends IService<SysDict> {

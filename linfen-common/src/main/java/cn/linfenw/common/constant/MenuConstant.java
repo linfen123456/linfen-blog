@@ -3,7 +3,7 @@ package cn.linfenw.common.constant;
 /**
  * @Classname MenuConstant
  * @Description 菜单常量
- * @Author 李号东 lihaodongmail@163.com
+ * @Author linfen
  * @Date 2019-04-29 19:49
  * @Version 1.0
  */

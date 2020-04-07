@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 社交登录 服务类
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-04-27
  */
 public interface ISysSocialService extends IService<SysSocial> {

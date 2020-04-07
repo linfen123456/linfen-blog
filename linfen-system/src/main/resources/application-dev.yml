@@ -106,7 +106,7 @@ spring:
 #debug
 debug: true
 
-uploadFileServerPathPrefix: /Users/lihaodong/Desktop/files
+uploadFileServerPathPrefix: /Users/linfen/Desktop/files
 
 #七牛云配置
 qiniu:

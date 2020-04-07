@@ -3,7 +3,7 @@ package cn.linfenw.modules.security.properties;
 /**
  * @Classname SocialProperties
  * @Description TODO
- * @Author Created by Lihaodong (alias:小东啊) lihaodongmail@163.com
+ * @Author linfen
  * @Date 2019-08-06 14:50
  * @Version 1.0
  */

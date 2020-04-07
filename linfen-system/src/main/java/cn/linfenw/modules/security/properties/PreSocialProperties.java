@@ -3,7 +3,7 @@ package cn.linfenw.modules.security.properties;
 import lombok.Data;
 
 /**
- * @author zhailiang
+ * @author linfen
  */
 @Data
 public class PreSocialProperties {

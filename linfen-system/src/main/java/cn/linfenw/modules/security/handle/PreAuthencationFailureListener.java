@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * @Classname XytAuthencationFailureListener
  * @Description 用户登录失败监听器事件
- * @Author Created by Lihaodong (alias:小东啊) im.lihaodong@gmail.com
+ * @Author linfen
  * @Date 2019/12/19 5:24 下午
  * @Version 1.0
  */

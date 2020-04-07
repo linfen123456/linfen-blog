@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * 租户表
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-08-10
  */
 @Data

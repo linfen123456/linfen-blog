@@ -12,7 +12,7 @@ import java.util.List;
  * 字典表 Mapper 接口
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-05-17
  */
 public interface SysDictMapper extends BaseMapper<SysDict> {

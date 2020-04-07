@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * 字典表
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-05-17
  */
 @Data

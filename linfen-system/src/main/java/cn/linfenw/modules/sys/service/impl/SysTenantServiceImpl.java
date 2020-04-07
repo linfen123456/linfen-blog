@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  * 租户表 服务实现类
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-08-10
  */
 @Service

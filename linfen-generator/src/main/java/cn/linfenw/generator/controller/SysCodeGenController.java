@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @Classname SysCodeGenController
  * @Description 代码生成
- * @Author Created by Lihaodong (alias:小东啊) lihaodongmail@163.com
+ * @Author linfen
  * @Date 2019-08-02 14:32
  * @Version 1.0
  */

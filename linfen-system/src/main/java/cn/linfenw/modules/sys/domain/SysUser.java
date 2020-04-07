@@ -19,7 +19,7 @@ import java.util.List;
  * 用户表
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-04-21
  */
 @Data

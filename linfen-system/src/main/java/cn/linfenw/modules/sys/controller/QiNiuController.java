@@ -16,6 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
+/**
+ * 七牛云工具类
+ */
 @Slf4j
 @RestController
 @RequestMapping("/qiniu")

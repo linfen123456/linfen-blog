@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * @Classname IndexController
  * @Description 主页模块
- * @Author 李号东 lihaodongmail@163.com
+ * @Author linfen
  * @Date 2019-05-07 12:38
  * @Version 1.0
  */

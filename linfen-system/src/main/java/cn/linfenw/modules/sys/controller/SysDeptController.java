@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * 部门管理 前端控制器
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-04-21
  */
 @RestController

@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * @Classname ThreadLocalDateUtil
  * @Description TODO
- * @Author Created by Lihaodong (alias:小东啊) im.lihaodong@gmail.com
+ * @Author linfen
  * @Date 2019-09-24 09:54
  * @Version 1.0
  */

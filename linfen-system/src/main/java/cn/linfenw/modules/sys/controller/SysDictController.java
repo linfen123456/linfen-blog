@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * 字典表 前端控制器
  * </p>
  *
- * @author lihaodong
+ * @author linfen
  * @since 2019-05-17
  */
 @RestController

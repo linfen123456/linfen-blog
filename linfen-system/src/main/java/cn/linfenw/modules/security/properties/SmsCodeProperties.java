@@ -4,7 +4,7 @@
 package cn.linfenw.modules.security.properties;
 
 /**
- * @author zhailiang
+ * @author linfen
  *
  */
 public class SmsCodeProperties {

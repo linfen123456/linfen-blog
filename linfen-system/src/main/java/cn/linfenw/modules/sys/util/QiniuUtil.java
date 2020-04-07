@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 
+/**
+ * 七牛云工具类
+ */
 @Component
 public class QiniuUtil {
     @Value("${qiniu.accessKey}")

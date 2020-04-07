@@ -4,7 +4,7 @@ package cn.linfenw.common.sensitive;
 /**
  * @Classname SensitiveInfoSerialize
  * @Description 脱敏类型枚举类
- * @Author Created by Lihaodong (alias:小东啊) im.lihaodong@gmail.com
+ * @Author linfen
  * @Date 2019/12/9 4:20 下午
  * @Version 1.0
  */

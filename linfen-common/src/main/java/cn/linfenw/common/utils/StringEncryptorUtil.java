@@ -10,7 +10,7 @@ public class StringEncryptorUtil {
         textEncryptor.setPassword("EbfYkitulv73I2p0mXI50JMXoaxZTKJ1");
         //要加密的数据（数据库的用户名或密码）
         String username = textEncryptor.encrypt("983604047@qq.com");
-        String password = textEncryptor.encrypt("lxdqwicdrwnfbcdh");
+        String password = textEncryptor.encrypt("lxdqwicdr-kaiwanxiao");
         System.out.println("username:"+username);
         System.out.println("password:"+password);
     }
