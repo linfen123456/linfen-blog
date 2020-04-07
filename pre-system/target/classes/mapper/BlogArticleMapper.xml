@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xd.pre.blog.mapper.BlogArticleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogArticle">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="abstracts" property="abstracts" />
+        <result column="content" property="content" />
+        <result column="cover" property="cover" />
+        <result column="views" property="views" />
+        <result column="discuss" property="discuss" />
+        <result column="open_discuss" property="openDiscuss" />
+        <result column="type" property="type" />
+        <result column="istop" property="istop" />
+        <result column="sort" property="sort" />
+        <result column="is_view" property="isView" />
+        <result column="category_id" property="categoryId" />
+        <result column="user_id" property="userId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+    </resultMap>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseManyResultMap" type="com.xd.pre.blog.dto.BlogArticleDTO">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="abstracts" property="abstracts" />
+        <result column="content" property="content" />
+        <result column="cover" property="cover" />
+        <result column="views" property="views" />
+        <result column="discuss" property="discuss" />
+        <result column="open_discuss" property="openDiscuss" />
+        <result column="type" property="type" />
+        <result column="istop" property="istop" />
+        <result column="sort" property="sort" />
+        <result column="is_view" property="isView" />
+        <result column="category_id" property="categoryId" />
+        <result column="user_id" property="userId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="categoryName" property="categoryName" />
+        <result column="username" property="username" />
+        <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="com.xd.pre.blog.domain.BlogTag" />
+    </resultMap>
+
+    <resultMap id="tagMap" type="com.xd.pre.blog.domain.BlogTag">
+        <id property="id" column="id"/>
+        <id property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseOneResultMap" type="com.xd.pre.blog.dto.BlogArticleDTO">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="abstracts" property="abstracts" />
+        <result column="content" property="content" />
+        <result column="cover" property="cover" />
+        <result column="views" property="views" />
+        <result column="discuss" property="discuss" />
+        <result column="open_discuss" property="openDiscuss" />
+        <result column="type" property="type" />
+        <result column="istop" property="istop" />
+        <result column="sort" property="sort" />
+        <result column="is_view" property="isView" />
+        <result column="category_id" property="categoryId" />
+        <result column="user_id" property="userId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="categoryName" property="categoryName" />
+        <result column="username" property="username" />
+        <result column="nickname" property="nickname" />
+        <result column="avatar" property="avatar" />
+        <collection property="tags" select="selectTagsByarticleId" column="id" ofType="com.xd.pre.blog.domain.BlogTag" />
+        <collection property="discusses" select="com.xd.pre.blog.mapper.BlogDiscussMapper.getRootBlogDiscussByArticleId" column="id" ofType="com.xd.pre.blog.domain.BlogDiscuss" />
+    </resultMap>
+
+<!-- 归档查询映射结果 -->
+    <resultMap id="BasePigeonholeResultMap" type="com.xd.pre.blog.dto.PigeonholeDTO">
+        <id column="id" property="id" />
+        <id column="month" property="month" />
+        <id column="year" property="year" />
+        <id column="count" property="count" />
+        <collection property="articles" select="selectByYearMonth" column="{years=year,months=month}" ofType="com.xd.pre.blog.dto.BlogArticleDTO" />
+    </resultMap>
+
+    <select id="pageList" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        from blog_article a
+					left join sys_user u on a.user_id = u.user_id
+					left join blog_category c on a.category_id = c.id
+
+				where a.is_view = 0
+                <if test="ew.categoryId != null and ew.categoryId != ''">
+                    and a.category_id = #{ew.categoryId}
+                </if>
+                <if test="ew.title != null and ew.title != ''">
+                    and a.title = #{ew.title}
+                </if>
+				order by a.istop,a.create_time DESC
+
+    </select>
+
+    <!--ID查询标签-->
+    <select id="selectTagsByarticleId" resultMap="tagMap">
+        select * from blog_article_tag  ats
+		LEFT JOIN blog_tag t ON ats.tag_id=t.id
+		where ats.article_id = #{id}
+    </select>
+
+    <!--通过ID查询-->
+    <select id="selectByIds" resultMap="BaseOneResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+            from blog_article a
+			left join sys_user u on a.user_id = u.user_id
+			left join blog_category c on a.category_id = c.id
+				where a.is_view = 0 and a.id=#{id}
+				order by a.istop,a.create_time DESC
+    </select>
+
+    <!--通过年月查询-->
+    <select id="selectByYearMonth" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+            from blog_article a
+			left join sys_user u on a.user_id = u.user_id
+			left join blog_category c on a.category_id = c.id
+				where a.is_view = 0
+				 and YEAR(a.create_time)=#{years}
+				 and MONTH(a.create_time)=#{months}
+				order by a.istop,a.create_time DESC
+    </select>
+
+    <!--归档查询-->
+    <select id="pagePigeonhole" resultMap="BasePigeonholeResultMap">
+        select COUNT(MONTH(a.create_time)) as count,year(a.create_time) as year,month(a.create_time) as month
+        from blog_article a
+        where a.is_view = 0
+		GROUP BY YEAR(a.create_time),MONTH(a.create_time);
+    </select>
+    <select id="pageListByTagId" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        from blog_article a
+        left join sys_user u on a.user_id = u.user_id
+        left join blog_category c on a.category_id = c.id
+        where a.is_view = 0
+        and a.id IN (
+        select ats.article_id
+        from blog_article_tag ats
+        <where>
+            <if test="tagId != null and tagId != ''">
+                ats.tag_id = #{tagId}
+            </if>
+        </where>
+        )
+        order by a.istop,a.create_time DESC
+    </select>
+    <select id="pageArticleByName" resultMap="BaseManyResultMap">
+        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        from blog_article a
+        left join sys_user u on a.user_id = u.user_id
+        left join blog_category c on a.category_id = c.id
+        where a.is_view = 0
+        <if test="title != null and title != ''">
+          and  a.title LIKE concat(concat('%',#{title}),'%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and  a.userId = #{userId}
+        </if>
+        order by a.istop,a.create_time DESC
+    </select>
+
+
+</mapper>

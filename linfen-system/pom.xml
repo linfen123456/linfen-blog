@@ -3,41 +3,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.xd</groupId>
-        <artifactId>pre</artifactId>
+        <groupId>cn.linfenw</groupId>
+        <artifactId>linfen</artifactId>
         <version>1.4</version>
         <relativePath>../</relativePath>
     </parent>
-    <artifactId>pre-system</artifactId>
-    <name>pre-system</name>
+    <artifactId>linfen-system</artifactId>
+    <name>linfen-system</name>
     <packaging>jar</packaging>
-    <description>pre 主要模块</description>
+    <description>linfen 主要模块</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-common</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-common</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-log</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-log</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-security</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-security</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-generator</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-generator</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-blog</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-blog</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

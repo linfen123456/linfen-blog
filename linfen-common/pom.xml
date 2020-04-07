@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>pre</artifactId>
-        <groupId>com.xd</groupId>
+        <artifactId>linfen</artifactId>
+        <groupId>cn.linfenw</groupId>
         <version>1.4</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>pre-common</artifactId>
+    <artifactId>linfen-common</artifactId>
     <packaging>jar</packaging>
 
-    <description>pre 公共模块</description>
+    <description>linfen 公共模块</description>
 
     <dependencies>
         <dependency>

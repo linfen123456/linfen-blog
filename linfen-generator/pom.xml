@@ -3,19 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>pre</artifactId>
-        <groupId>com.xd</groupId>
+        <artifactId>linfen</artifactId>
+        <groupId>cn.linfenw</groupId>
         <version>1.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pre-generator</artifactId>
+    <artifactId>linfen-generator</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.xd</groupId>
-            <artifactId>pre-common</artifactId>
-            <version>${pre.version}</version>
+            <groupId>cn.linfenw</groupId>
+            <artifactId>linfen-common</artifactId>
+            <version>${linfen.version}</version>
         </dependency>
     </dependencies>
 </project>

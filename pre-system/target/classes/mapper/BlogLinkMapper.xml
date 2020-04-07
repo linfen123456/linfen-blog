@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xd.pre.blog.mapper.BlogLinkMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xd.pre.blog.domain.BlogLink">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="descriptions" property="descriptions" />
+        <result column="logo" property="logo" />
+        <result column="link_address" property="linkAddress" />
+        <result column="type" property="type" />
+        <result column="pv" property="pv" />
+        <result column="status" property="status" />
+        <result column="user_id" property="userId" />
+        <result column="sort" property="sort" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="tenant_id" property="tenantId" />
+    </resultMap>
+
+    <resultMap id="orderByType" type="com.xd.pre.blog.dto.LinkDTO">
+        <result column="type" property="type" />
+        <result column="sort" property="sort" />
+        <result column="count" property="count" />
+        <collection property="links" select="selectLinkByType" column="type" />
+    </resultMap>
+    <update id="updateVisibleById">
+        update blog_link set pv =pv +1 where id=#{id}
+    </update>
+
+    <select id="selectLinkByType"  resultMap="BaseResultMap">
+        select *
+        FROM blog_link
+        where status=1 and type=#{type}
+        ORDER BY pv,sort DESC
+
+    </select>
+
+    <select id="orderByAll" resultMap="orderByType">
+        select type,COUNT(name) as count
+        from blog_link
+        where status=1
+        group by type
+    </select>
+
+</mapper>
