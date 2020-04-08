@@ -18,6 +18,8 @@ import java.net.URLEncoder;
 
 /**
  * 七牛云工具类
+ * @author linfen
+ * @since 2020-04-8
  */
 @Component
 public class QiniuUtil {
@@ -104,18 +106,11 @@ public class QiniuUtil {
      * @return
      * @throws IOException
      */
-    public String upload(String filePath, String fileKey) throws IOException {
-        Response res;
-        try {
-            res = getUploadManager().put(filePath, fileKey, getUpToken(fileKey));
+    public DefaultPutRet upload(String filePath, String fileKey) throws IOException {
+        Response res  = getUploadManager().put(filePath, fileKey, getUpToken(fileKey));
             // 解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(res.bodyString(), DefaultPutRet.class);
-            return putRet.key;
-        } catch (QiniuException e) {
-            res = e.response;
-            e.printStackTrace();
-            return "上传失败";
-        }
+            return putRet;
     }
 
     /**
@@ -125,18 +120,11 @@ public class QiniuUtil {
      * @return
      * @throws IOException
      */
-    public String upload(byte[] data, String fileKey) throws IOException {
-        Response res;
-        try {
-            res = getUploadManager().put(data, fileKey, getUpToken(fileKey));
+    public DefaultPutRet upload(byte[] data, String fileKey) throws IOException {
+        Response res = getUploadManager().put(data, fileKey, getUpToken(fileKey));
             // 解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(res.bodyString(), DefaultPutRet.class);
-            return  putRet.key;
-        } catch (QiniuException e) {
-            res = e.response;
-            e.printStackTrace();
-            return "上传失败";
-        }
+            return  putRet;
     }
 
     /**
@@ -147,9 +135,7 @@ public class QiniuUtil {
      * @throws IOException
      */
     public DefaultPutRet upload(InputStream inputStream, String fileKey) throws IOException {
-        Response res;
-
-            res = getUploadManager().put(inputStream, fileKey, getUpToken(fileKey),null,null);
+        Response res = getUploadManager().put(inputStream, fileKey, getUpToken(fileKey),null,null);
             // 解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(res.bodyString(), DefaultPutRet.class);
             return putRet ;
@@ -184,14 +170,6 @@ public class QiniuUtil {
      * @return
      */
     public String getPrivateFile(String fileKey) throws Exception{
-/*
-        String encodedFileName = URLEncoder.encode(fileKey, "utf-8").replace("+", "%20");
-        String url = String.format("%s/%s", fileDomain, encodedFileName);
-        Auth auth = Auth.create(accessKey, secretKey);
-        long expireInSeconds = 3600;//1小时，可以自定义链接过期时间
-        String finalUrl = auth.privateDownloadUrl(url, expireInSeconds);
-
-        return finalUrl;*/
         String encodedFileName = URLEncoder.encode(fileKey, "utf-8").replace("+", "%20");
         String publicUrl = String.format("%s/%s", fileDomain, encodedFileName);
         Auth auth = Auth.create(accessKey, secretKey);

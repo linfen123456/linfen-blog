@@ -11,7 +11,7 @@ mybatis-plus:
     db-config:
       logic-delete-field: delFlag
   mapper-locations: classpath:mapper/*.xml
-  typeAliasesPackage: com.xd.pre.domain
+  typeAliasesPackage: cn.linfenw.domain
 pre:
   security:
     social:
@@ -55,7 +55,7 @@ server:
     io-threads: 4
     worker-threads: 20
   servlet:
-    context-path: /pre
+    context-path: /linfen
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -112,7 +112,7 @@ uploadFileServerPathPrefix: /Users/linfen/Desktop/files
 
 #七牛云配置
 qiniu:
-  accessKey: LAl6jT_qGLWRA--aJIf5lbHPygWTCP2h-r1PaUkr
-  secretKey: t3zC3cFEUSKJLNBpFtfJB-lgXdXXxIAsLfKy90_L
+  accessKey: ENC(OnwdFZipRMP0nXmz+LBEzdIfof84BPUy3ZFwdAzPmFMFzao2kNyHImRhhVTPXKhYeeBGA1w7Bfk=)
+  secretKey: ENC(774EgysllH7G0Cp/PR8Wnh7bMto84dpDXqHbwHC/MAiu8xX2g7euHZgu/h4aBwzJrl75uMsR/kU=)
   bucketName: linfen-blog
-  fileDomain: http://q89koq7ls.bkt.clouddn.com #文件访问域名前缀
+  fileDomain: ENC(LxSxhRDbQzUPOX1ux74i6vdFUUhJmovycQ2FYbOEK5pBPp1+b6GFJTNS+Mnm7oER) #文件访问域名前缀

@@ -44,9 +44,9 @@ public class JwtUtil {
      */
     private static final String SECRET = "abcdefgh";
     /**
-     * 有效期1小时
+     * 有效期4小时
      */
-    private static final long EXPIRE_TIME = 60 * 60 * 1000;
+    private static final long EXPIRE_TIME = 4*60 * 60 * 1000;
 
     @Value("${jwt.header}")
     private String tokenHeader;
