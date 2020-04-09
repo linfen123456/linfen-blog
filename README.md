@@ -1,6 +1,8 @@
 
 ### 淋汾博客系统 基于Spring Boot +Vue前后端分离项目
 
+前端项目地址<a href='https://github.com/linfen123456/linfen-blog-ui'>https://github.com/linfen123456/linfen-blog-ui</a>
+
 ### 项目特点
 - 前后端分离架构
 - 采用Restfull API 规范开发
@@ -12,3 +14,5 @@
 - Spring Social集成Security实现第三方社交登录
 - 基于Mybatis-Plus
 - 基于注解实现数据脱敏,防隐私
+
+实现博客功能
