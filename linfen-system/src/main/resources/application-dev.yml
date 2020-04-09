@@ -54,6 +54,8 @@ server:
     direct-buffers: true
     io-threads: 4
     worker-threads: 20
+  compression:
+    enabled: true #zip压缩
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -114,5 +116,4 @@ qiniu:
   secretKey: ENC(774EgysllH7G0Cp/PR8Wnh7bMto84dpDXqHbwHC/MAiu8xX2g7euHZgu/h4aBwzJrl75uMsR/kU=)
   bucketName: linfen-blog
   fileDomain: ENC(LxSxhRDbQzUPOX1ux74i6vdFUUhJmovycQ2FYbOEK5pBPp1+b6GFJTNS+Mnm7oER) #文件访问域名前缀
-
 

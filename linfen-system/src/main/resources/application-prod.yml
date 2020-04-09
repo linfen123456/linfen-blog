@@ -56,6 +56,8 @@ server:
     worker-threads: 20
   servlet:
     context-path: /linfen
+  compression:
+    enabled: true #开启 gzip 压缩
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
