@@ -1,0 +1,12 @@
+cn\linfenw\generator\domain\SysDatasource.class
+cn\linfenw\generator\controller\SysCodeGenController.class
+cn\linfenw\generator\util\CodeGenUtil.class
+cn\linfenw\generator\util\CodeGenMain.class
+cn\linfenw\generator\mapper\SysCodeMapper.class
+cn\linfenw\generator\service\Impl\SysCodeServiceImpl.class
+cn\linfenw\generator\domain\SysTableEntity.class
+cn\linfenw\generator\domain\CodeGenConfig.class
+cn\linfenw\generator\util\CodeGenUtil$2.class
+cn\linfenw\generator\domain\SysColumnEntity.class
+cn\linfenw\generator\util\CodeGenUtil$1.class
+cn\linfenw\generator\service\SysCodeService.class
