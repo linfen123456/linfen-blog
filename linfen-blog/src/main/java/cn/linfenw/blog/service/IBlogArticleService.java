@@ -33,4 +33,6 @@ public interface IBlogArticleService extends IService<BlogArticle> {
     IPage<BlogArticleDTO> pageArticleByName(Page page, String title, Integer userId);
 
     Integer deleteByArticleId(Integer id);
+
+    boolean updateArticleById(BlogArticleVo blogArticle);
 }

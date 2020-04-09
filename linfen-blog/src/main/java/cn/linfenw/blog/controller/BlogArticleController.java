@@ -170,8 +170,8 @@ public class BlogArticleController {
     @SysOperaLog(descrption = "更新文章")
     @PutMapping
     @PreAuthorize("hasAuthority('blog:article:update')")
-    public R update(@RequestBody BlogArticle blogArticle) {
-        return R.ok(blogArticleService.updateById(blogArticle));
+    public R update(@RequestBody BlogArticleVo blogArticle) {
+        return R.ok(blogArticleService.updateArticleById(blogArticle));
     }
 
     /**

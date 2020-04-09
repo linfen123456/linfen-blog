@@ -9,6 +9,7 @@ import cn.linfenw.blog.mapper.BlogArticleMapper;
 import cn.linfenw.blog.service.IBlogArticleService;
 import cn.linfenw.blog.service.IBlogArticleTagService;
 import cn.linfenw.blog.service.IBlogDiscussService;
+import cn.linfenw.blog.util.HtmlUtil;
 import cn.linfenw.blog.vo.BlogArticleVo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -16,11 +17,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.http.util.TextUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.HTML;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +54,10 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 
         //保存文章
         BlogArticle article = new BlogArticle();
-        BeanUtils.copyProperties(blogArticle,article);
+        BeanUtils.copyProperties(blogArticle, article);
+        if (TextUtils.isEmpty(blogArticle.getAbstracts())) {
+            article.setAbstracts(HtmlUtil.getTextFromHtml(blogArticle.getContent(),100)+"..");
+        }
         baseMapper.insert(article);
 
         //保存标签
@@ -122,5 +128,31 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
         //删除评论
         discussService.remove(discussWrapper);
         return 1;
+    }
+
+    @Transactional
+    @Override
+    public boolean updateArticleById(BlogArticleVo blogArticle) {
+        List<BlogArticleTag> tasList = new ArrayList<>();
+
+        //保存文章
+        BlogArticle article = new BlogArticle();
+        BeanUtils.copyProperties(blogArticle, article);
+        if (TextUtils.isEmpty(blogArticle.getAbstracts())) {
+            article.setAbstracts(HtmlUtil.getTextFromHtml(blogArticle.getContent(),100)+"..");
+        }
+        baseMapper.updateById(article);
+
+        int delete = blogArticleTagService.getBaseMapper().delete(Wrappers.<BlogArticleTag>lambdaQuery()
+                .eq(BlogArticleTag::getArticleId, article.getId())
+        );
+        //保存标签
+        for (Long tagId: blogArticle.getTags()) {
+            BlogArticleTag tag = new BlogArticleTag();
+            tag.setTagId(tagId);
+            tag.setArticleId(article.getId());
+            tasList.add(tag);
+        }
+        return blogArticleTagService.saveBatch(tasList);
     }
 }

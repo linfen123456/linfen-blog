@@ -94,7 +94,7 @@
     </resultMap>
 
     <select id="pageList" resultMap="BaseManyResultMap">
-        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        select a.id, a.title, a.abstracts, a.cover, a.views, a.discuss, a.open_discuss, a.type, a.istop, a.sort, a.category_id, a.is_view, a.user_id, a.create_time, a.update_time, a.tenant_id , u.avatar as avatar,u.*,c.`name` as categoryName
         from blog_article a
 					left join sys_user u on a.user_id = u.user_id
 					left join blog_category c on a.category_id = c.id
@@ -129,7 +129,7 @@
 
     <!--通过年月查询-->
     <select id="selectByYearMonth" resultMap="BaseManyResultMap">
-        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        select a.id, a.title, a.abstracts, a.cover, a.views, a.discuss, a.open_discuss, a.type, a.istop, a.sort, a.category_id, a.is_view, a.user_id, a.create_time, a.update_time, a.tenant_id  , u.avatar as avatar,u.*,c.`name` as categoryName
             from blog_article a
 			left join sys_user u on a.user_id = u.user_id
 			left join blog_category c on a.category_id = c.id
@@ -147,7 +147,7 @@
 		GROUP BY YEAR(a.create_time),MONTH(a.create_time);
     </select>
     <select id="pageListByTagId" resultMap="BaseManyResultMap">
-        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        select a.id, a.title, a.abstracts, a.cover, a.views, a.discuss, a.open_discuss, a.type, a.istop, a.sort, a.category_id, a.is_view, a.user_id, a.create_time, a.update_time, a.tenant_id  , u.avatar as avatar,u.*,c.`name` as categoryName
         from blog_article a
         left join sys_user u on a.user_id = u.user_id
         left join blog_category c on a.category_id = c.id
@@ -164,7 +164,7 @@
         order by a.istop,a.create_time DESC
     </select>
     <select id="pageArticleByName" resultMap="BaseManyResultMap">
-        select a.* , u.avatar as avatar,u.*,c.`name` as categoryName
+        select a.id, a.title, a.abstracts, a.cover, a.views, a.discuss, a.open_discuss, a.type, a.istop, a.sort, a.category_id, a.is_view, a.user_id, a.create_time, a.update_time, a.tenant_id  , u.avatar as avatar,u.*,c.`name` as categoryName
         from blog_article a
         left join sys_user u on a.user_id = u.user_id
         left join blog_category c on a.category_id = c.id
