@@ -122,7 +122,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public SysUser findByUserInfoName(String username) {
         SysUser sysUser = baseMapper.selectOne(Wrappers.<SysUser>lambdaQuery()
-                .select(SysUser::getUserId, SysUser::getUsername, SysUser::getPhone, SysUser::getEmail, SysUser::getPassword, SysUser::getDeptId, SysUser::getJobId, SysUser::getAvatar)
+                .select(SysUser::getUserId, SysUser::getNickname,SysUser::getUsername, SysUser::getPhone, SysUser::getEmail, SysUser::getPassword, SysUser::getDeptId, SysUser::getJobId, SysUser::getAvatar)
                 .eq(SysUser::getUsername, username));
         // 获取部门
         sysUser.setDeptName(deptService.selectDeptNameByDeptId(sysUser.getDeptId()));
@@ -170,6 +170,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             throw new PreBaseException("手机号已被注册");
         }
         userDTO.setDeptId(6);
+        userDTO.setNickname(userDTO.getUsername());
         userDTO.setLockFlag("0");
         SysUser sysUser = new SysUser();
         // 对象拷贝
@@ -178,7 +179,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         sysUser.setPassword(PreUtil.encode(userDTO.getPassword()));
         baseMapper.insertUser(sysUser);
         SysUserRole sysUserRole = new SysUserRole();
-        sysUserRole.setRoleId(14);
+        sysUserRole.setRoleId(8);
         sysUserRole.setUserId(sysUser.getUserId());
         return userRoleService.save(sysUserRole);
     }

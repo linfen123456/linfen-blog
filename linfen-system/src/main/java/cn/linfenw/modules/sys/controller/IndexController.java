@@ -59,12 +59,12 @@ public class IndexController {
 
     @PostMapping("/register")
     public R register(@RequestBody UserDTO userDTO) {
-        Object redisCode = redisTemplate.opsForValue().get(userDTO.getPhone());
+        String redisCode = (String) redisTemplate.opsForValue().get(userDTO.getEmail());
         if (ObjectUtil.isNull(redisCode)) {
             throw new ValidateCodeException("验证码已失效");
         }
-        if (!userDTO.getSmsCode().toLowerCase().equals(redisCode)) {
-            throw new ValidateCodeException("短信验证码错误");
+        if (!userDTO.getSmsCode().toLowerCase().equals(redisCode.toLowerCase())) {
+            throw new ValidateCodeException("邮箱验证码错误");
         }
         return R.ok(userService.register(userDTO));
     }
@@ -138,6 +138,7 @@ public class IndexController {
         map.put("roles", roles.toArray());
         map.put("avatar", sysUser.getAvatar());
         map.put("name", sysUser.getUsername());
+        map.put("nickname", sysUser.getNickname());
         map.put("user", sysUser);
         return R.ok(map);
     }

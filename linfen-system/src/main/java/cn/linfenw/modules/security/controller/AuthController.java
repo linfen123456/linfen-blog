@@ -1,6 +1,7 @@
 package cn.linfenw.modules.security.controller;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.linfenw.modules.sys.util.EmailUtil;
 import com.wf.captcha.ArithmeticCaptcha;
 import cn.linfenw.common.constant.PreConstant;
 import cn.linfenw.common.utils.R;
@@ -11,6 +12,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +30,8 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class AuthController {
 
+    @Autowired
+    private EmailUtil emailUtil;
     @Autowired
     private RedisTemplate<Object, Object> redisTemplate;
 
@@ -73,4 +77,20 @@ public class AuthController {
     }
 
 
+    /**
+     * 发送邮箱验证码
+     *
+     * @param email
+     * @return
+     */
+    @PostMapping("/sendEmailCode/{email}")
+    public R sendEmailCode(@PathVariable("email") String email, HttpServletRequest request) {
+        String mailCode = emailUtil.sendSimpleMail(email, request);
+        if (ObjectUtil.isNull(mailCode)) {
+            return R.error("短信发送失败");
+        }
+        // 保存到验证码到 redis 有效期两分钟
+        redisTemplate.opsForValue().set(email, mailCode, 2, TimeUnit.MINUTES);
+        return R.ok();
+    }
 }

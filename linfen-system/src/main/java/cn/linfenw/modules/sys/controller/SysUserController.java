@@ -80,6 +80,19 @@ public class SysUserController {
     }
 
     /**
+     * 更新用户信息
+     *
+     * @param sysUser
+     * @return
+     */
+    @SysOperaLog(descrption = "更新用户信息")
+    @PutMapping("/userinfo")
+    @PreAuthorize("hasAuthority('sys:userinfo:update')")
+    public R updateUserInfo(@RequestBody SysUser sysUser) {
+        return R.ok(userService.updateById(sysUser));
+    }
+
+    /**
      * 删除用户包括角色和部门
      *
      * @param userId

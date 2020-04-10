@@ -39,7 +39,7 @@ public class SysUser extends Model<SysUser> {
     /**
      * 用户名
      */
-    @SensitiveInfo(SensitiveType.CHINESE_NAME)
+//    @SensitiveInfo(SensitiveType.CHINESE_NAME)
     private String username;
 
     /**
@@ -73,6 +73,11 @@ public class SysUser extends Model<SysUser> {
      * 头像
      */
     private String avatar;
+
+    /**
+     * 昵称
+     */
+    private String nickname;
 
     /**
      * 创建时间
