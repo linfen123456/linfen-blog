@@ -33,15 +33,15 @@
 在服务器可以使用nginx进行端口转发和代理配置
 
 ### 项目截图
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic1.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic2.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic3.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic4.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic5.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic6.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic7.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic8.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic9.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic10.png)
-![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic11.png)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic1.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic2.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic3.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic4.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic5.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic6.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic7.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic8.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic9.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic10.png?raw=true)
+![login](https://github.com/linfen123456/linfen-blog/blob/master/screenshot/run_pic11.png?raw=true)
 
