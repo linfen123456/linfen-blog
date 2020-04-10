@@ -26,7 +26,7 @@ public class CodeGenMain {
         Scanner scanner = new Scanner(System.in);
         codeGenConfig.setAuthor("linfen");
         codeGenConfig.setModuleName("blog");
-        codeGenConfig.setPackageName("com.xd.pre.blog");
+        codeGenConfig.setPackageName("cn.linfenw.blog");
         System.out.println("请输入表名：\n");
         codeGenConfig.setTableName(scanner.nextLine());
         DataSourceConfig dataSourceConfig = new DataSourceConfig()

@@ -138,7 +138,7 @@ public class BlogArticleController {
      */
     @GetMapping("oneArticleById")
     //@PreAuthorize("hasAuthority('blog:article:view')")
-    public R getOneById(Page page,Integer id) {
+    public R getOneById(Integer id) {
         BlogArticleDTO blogArticleDTO = blogArticleService.selectById(id);
         BlogArticle blogArticle = new BlogArticle();
         blogArticle.setId(blogArticleDTO.getId());
