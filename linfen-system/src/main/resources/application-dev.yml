@@ -70,7 +70,7 @@ spring:
     username: root
   mail:
     host: smtp.qq.com
-    username: ENC(A94uUweXNjiP4AhYHNfDKZWqTLIR4RzftlEUKDkBvLI=)
+    username: ENC(osJknMmZMlmDylG2aauZRf3ZTEyH6bWN)
     password: ENC(0lmSKzAD+NKDfWtd6zDpG1UpwwdC9la8z5L23wkK57s=)
     properties:
       mail:

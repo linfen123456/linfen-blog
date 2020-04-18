@@ -72,15 +72,21 @@ spring:
     username: root
   mail:
     host: smtp.qq.com
-    username: ENC(A94uUweXNjiP4AhYHNfDKZWqTLIR4RzftlEUKDkBvLI=)
+    username: ENC(osJknMmZMlmDylG2aauZRf3ZTEyH6bWN)
     password: ENC(0lmSKzAD+NKDfWtd6zDpG1UpwwdC9la8z5L23wkK57s=)
+    default-encoding: UTF-8
     properties:
       mail:
       smtp:
+      socketFactory:
+        port: 587
+        class: javax.net.ssl.SSLSocketFactory
+        fallback: false
       auth: true
       starttls:
-      enable: true
-      required: true
+        enable: true
+        required: true
+    port: 587
   main:
     allow-bean-definition-overriding: true
   redis:
