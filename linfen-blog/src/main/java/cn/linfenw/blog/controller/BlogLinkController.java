@@ -96,7 +96,7 @@ public class BlogLinkController {
      * @param blogLink
      * @return
      */
-    @SysOperaLog(descrption = "更新访问量友联")
+//    @SysOperaLog(descrption = "更新访问量友联")
     @PutMapping("updatevisible")
     public R updateVisible(@RequestBody BlogLink blogLink) {
         return R.ok(blogLinkService.updateVisibleById(blogLink));
