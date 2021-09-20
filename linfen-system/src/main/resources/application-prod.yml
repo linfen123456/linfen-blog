@@ -60,7 +60,7 @@ server:
     enabled: true #开启 gzip 压缩
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-test-query: SELECT 1
       max-lifetime: 30000
