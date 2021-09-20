@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.linfenw.modules.data.datascope.DataScope;
+import cn.linfenw.modules.security.code.sms.SmsCodeAuthenticationToken;
 import cn.linfenw.modules.security.social.SocialRedisHelper;
 import cn.linfenw.modules.security.util.JwtUtil;
 import cn.linfenw.modules.sys.domain.SysUser;
@@ -150,6 +151,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public String login(String username, String password) {
         //用户验证
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        //存储认证信息
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        //生成token
+        PreSecurityUser userDetail = (PreSecurityUser) authentication.getPrincipal();
+        return JwtUtil.generateToken(userDetail);
+    }
+
+    @Override
+    public String auth(String mobile) {
+        //用户验证
+        Authentication authentication = authenticationManager.authenticate(new SmsCodeAuthenticationToken(mobile));
         //存储认证信息
         SecurityContextHolder.getContext().setAuthentication(authentication);
         //生成token

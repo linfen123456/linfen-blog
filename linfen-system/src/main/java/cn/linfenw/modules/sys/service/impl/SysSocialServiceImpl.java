@@ -32,7 +32,7 @@ public class SysSocialServiceImpl extends ServiceImpl<SysSocialMapper, SysSocial
     @Override
     public IPage<SysSocial> selectSocialList(Page page, SysSocial social) {
         IPage<SysSocial> socialIPage = baseMapper.selectPage(page, Wrappers.query(social));
-        socialIPage.setRecords(socialIPage.getRecords().stream().peek(sysSocial -> sysSocial.setUserName(sysUserService.findSecurityUserByUser(new SysUser().setUserId(Integer.valueOf(sysSocial.getUserId()))).getUsername())).collect(Collectors.toList()));
+        socialIPage.setRecords(socialIPage.getRecords());
         return socialIPage;
     }
 

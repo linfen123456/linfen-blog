@@ -84,6 +84,14 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     String login(String username, String password);
+
+    /**
+     * 手机号码登录
+     * @param mobile
+     * @return
+     */
+    String auth(String mobile);
+
     /**
      * 注册用户
      * @return

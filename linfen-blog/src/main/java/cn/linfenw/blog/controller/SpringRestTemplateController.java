@@ -1,5 +1,6 @@
 package cn.linfenw.blog.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -20,11 +21,12 @@ public class SpringRestTemplateController {
     /***********HTTP GET method*************/
     @GetMapping("/image")
     public String getJson(){
-        String url="https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php?return=json";
+        String url="http://www.dmoe.cc/random.php?return=json";
         //String json =restTemplate.getForObject(url,Object.class);
         ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-        String json = results.getBody();
-        return json;
+        String jsonStr = results.getBody();
+        JSONObject json = JSON.parseObject(jsonStr);
+        return json.getString("imgurl");
     }
 
     /**********HTTP POST method**************/

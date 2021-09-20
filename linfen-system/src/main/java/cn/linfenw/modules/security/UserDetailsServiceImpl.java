@@ -5,6 +5,7 @@ import cn.linfenw.modules.sys.domain.SysUser;
 import cn.linfenw.modules.sys.service.ISysUserService;
 import cn.linfenw.security.LoginType;
 import cn.linfenw.security.PreSecurityUser;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -64,7 +66,13 @@ public class UserDetailsServiceImpl implements UserDetailsService, SocialUserDet
         SysUser sysUser = new SysUser();
         sysUser.setPhone(mobile);
         //  通过手机号mobile去数据库里查找用户以及用户权限
-        SysUser user = userService.findSecurityUserByUser(sysUser);
+        List<SysUser> userList = userService.list(new QueryWrapper<SysUser>().lambda()
+                .eq(SysUser::getPhone, mobile));
+        SysUser user = null;
+        if (userList.size() > 0) {
+            user = userList.get(0);
+        }
+
         if (ObjectUtil.isNull(user)) {
             log.info("登录手机号：" + mobile + " 不存在.");
             throw new UsernameNotFoundException("登录手机号：" + mobile + " 不存在");
