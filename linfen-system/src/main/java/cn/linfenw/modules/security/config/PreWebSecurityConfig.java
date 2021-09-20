@@ -95,7 +95,7 @@ public class PreWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login/**", "/mobile/login/**", "/favicon.ico", "/socialSignUp", "/bind", "/register/**").anonymous()
                 .antMatchers(HttpMethod.GET, "/*.html", "/**/*.html", "/**/*.css", "/**/*.js")
                 .permitAll()
-                .antMatchers("/auth/**").anonymous()
+                .antMatchers("/auth/**","/authLogin/**","/callback/**").anonymous()
                 .antMatchers(HttpMethod.GET,"/blog/**").permitAll()//博客去除拦截
                 .antMatchers(HttpMethod.POST,"/blog/discuss").permitAll()//博客评论拦截
                 .antMatchers(HttpMethod.PUT,"/blog/link/updatevisible").permitAll()//博客友联访问拦截
