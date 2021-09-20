@@ -91,7 +91,7 @@ spring:
     allow-bean-definition-overriding: true
   redis:
     database: 1
-    host: localhost
+    host: 8.135.65.163
     jedis:
       pool:
         max-active: 8
