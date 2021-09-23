@@ -100,6 +100,7 @@ public class PreWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/blog/discuss").permitAll()//博客评论拦截
                 .antMatchers(HttpMethod.PUT,"/blog/link/updatevisible").permitAll()//博客友联访问拦截
                 .antMatchers("/qiniu/file/**","/qiniu/private/file/**").permitAll()//七牛云文件下载
+                .antMatchers("/restTemplate/*").permitAll()//黄测试Android更新
                 .antMatchers("/sendCode/**").anonymous()
                 .antMatchers("/tenant/list").anonymous()
                 .antMatchers("/tenant/setting/**").anonymous()
