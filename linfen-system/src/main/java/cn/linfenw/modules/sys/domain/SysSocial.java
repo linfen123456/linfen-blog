@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("social_UserConnection")
+@TableName("social_userconnection")
 public class SysSocial implements Serializable {
 
     @TableField("userId")
